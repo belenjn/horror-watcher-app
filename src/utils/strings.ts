@@ -3,6 +3,7 @@ export const STRINGS = {
     welcomePageButton: "Let's go!",
     signInButton: "Sign in",
     signUpQuote: "It's my first time, I want to",
-    signUpLink: "sing up"
+    signUpLink: "sing up",
+    signUpButton: "Sing up"
 
 }

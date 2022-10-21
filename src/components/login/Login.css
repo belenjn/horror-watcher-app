@@ -110,4 +110,10 @@ span > a:hover {
   .login__container--data {
     width: 350px;
   }
+  .login__container--data--buttons {
+    flex-direction: column;
+    justify-content: space-around;
+    height: 200px;
+  }
+  
 }

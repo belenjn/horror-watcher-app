@@ -1,0 +1,84 @@
+.register__container {
+    background-color: var(--main-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .register__container--data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--size-border-radius);
+    width: 500px;
+    height: 600px;
+  }
+  
+  .logo {
+    align-self: center;
+    background-image: url("../../assets/logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .register__container--data--username,
+  .register__container--data--password,
+  .register__container--data--email {
+    align-self: center;
+    background-color: var(--main-bg-color);
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: greenyellow;
+    width: 50%;
+    padding: 10px;
+  }
+  
+  .register__container--data--username::placeholder,
+  .register__container--data--password::placeholder,
+  .register__container--data--email::placeholder {
+    color: var(--secondary-color);
+    text-align: left;
+    font-family: var(--main-font-family);
+    letter-spacing: 0.1rem;
+  }
+  
+  
+  .register__container--data--buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: center;
+    align-items: center;
+    width: 75%;
+    height: 70px;
+  }
+  
+  .signIn__button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: var(--size-border-radius);
+    color: white;
+    font-size: var(--font-size-buttons);
+    width: var(--width-buttons);
+    height: var(--height-buttons);
+  }
+  
+  .signIn__button:hover {
+    background-color: var(--hover-primary-color);
+    transform: scale(1.05);
+    transition: 0.2s ease-in-out;
+  }
+  
+  
+  
+  @media only screen and (max-width: 375px) {
+    .register__container--data {
+      width: 350px;
+    }
+  }
+  
