@@ -1,0 +1,30 @@
+.welcomePage__container {
+  background-color: var(--welcome-page-bg-color);
+  height: 100%;
+}
+
+.webs__container {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 400px;
+}
+
+.web__left {
+  background-image: url("../../assets/web-left.png");
+}
+
+.web__right {
+  background-image: url("../../assets/web-right.png");
+}
+
+.web__right,
+.web__left {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 400px;
+  height: 400px;
+}
