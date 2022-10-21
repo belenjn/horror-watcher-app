@@ -4,6 +4,6 @@ export const STRINGS = {
     signInButton: "Sign in",
     signUpQuote: "It's my first time, I want to",
     signUpLink: "sing up",
-    signUpButton: "Sing up"
+    signUpButton: "Sign up"
 
 }
