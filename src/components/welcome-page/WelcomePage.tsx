@@ -1,3 +1,4 @@
+import { STRINGS } from "../../utils/strings";
 import "./WelcomePage.css";
 
 export const WelcomePage = () => {
@@ -8,8 +9,8 @@ export const WelcomePage = () => {
         <div className="web__right" />
       </div>
       <div className="logo" />
-      <h1>Your favorites horror movies at one click </h1>
-      <button>Let's go!</button>
+      <h1>{STRINGS.welcomePageTitle}</h1>
+      <button>{STRINGS.welcomePageButton}</button>
     </div>
   );
 };
