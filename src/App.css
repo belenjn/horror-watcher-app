@@ -1,8 +1,13 @@
-
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DotGothic16&family=Fredoka+One&display=swap");
 
 :root {
-  --main-bg-color: #1D1D1D;
-  --welcome-page-bg-color: #B7B4C9;
+  --main-bg-color: #1d1d1d;
+  --welcome-page-bg-color: #b7b4c9;
+  --main-font-family: "DotGothic16", sans-serif;
+  --secondary-font-family: "Fredoka One", cursive;
+  --size-border-radius: 10px;
+  --font-size-buttons: 20px;
 }
 
 html,
@@ -11,6 +16,7 @@ html,
   margin: 0;
   padding: 0;
 }
+
 
 body {
   min-width: 320px;
