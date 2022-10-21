@@ -1,0 +1,69 @@
+.navbar__container {
+  border: none;
+  border-bottom: 2px solid var(--primary-color);
+  background-color: var(--main-bg-color);
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  font-family: var(--main-font-family);
+}
+
+.logo {
+  align-self: center;
+  background-image: url("../../assets/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-left: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.navbar__container--menu {
+  align-self: center;
+  display: flex;
+  font-family: var(--main-font-family);
+  justify-content: space-around;
+  text-align: center;
+  width: 40%;
+  height: 50px;
+  margin-right: 20px;
+}
+
+.first__option{ 
+    padding: 5px;
+}
+
+.second__option {
+    padding: 5px;
+}
+
+.first__option:hover,
+.second__option:hover {
+    color: greenyellow;
+    cursor: pointer;
+}
+
+/* TODO: revisar el active */
+/* TODO: hacer navbar para movil */
+
+.first__option:active {
+    color: greenyellow;
+}
+
+.logout {
+    align-self: center;
+    background-image: url("../../assets/log-out.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 30px;
+    height: 30px;
+}
+
+.logout:hover{
+    cursor: pointer;
+}
+

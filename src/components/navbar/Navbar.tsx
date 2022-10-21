@@ -2,6 +2,13 @@ import "./Navbar.css"
 
 export const Navbar = () => {
   return (
-    <div>Navbar</div>
+    <div className="navbar__container">
+        <div className="logo" />
+        <div className="navbar__container--menu">
+            <span className="first__option">My movies</span>
+            <span className="second__option">Explore</span>
+            <div className="logout"/>
+        </div>
+    </div>
   )
 }
