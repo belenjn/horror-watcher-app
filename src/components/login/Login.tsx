@@ -1,3 +1,4 @@
+import { STRINGS } from "../../utils/strings";
 import "./Login.css";
 
 export const Login = () => {
@@ -17,11 +18,13 @@ export const Login = () => {
           placeholder="Password"
         />
         <div className="login__container--data--buttons">
-            <button className="signIn__button">Sign in</button>
-            <div className="google__button"/>
+          <button className="signIn__button">{STRINGS.signInButton}</button>
+          <div className="google__button" />
         </div>
 
-        <span>It's my first time, I want to <a>sing up</a></span>
+        <span>
+          {STRINGS.signUpQuote} <a>{STRINGS.signUpLink}</a>
+        </span>
       </div>
     </div>
   );
