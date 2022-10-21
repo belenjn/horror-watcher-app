@@ -4,10 +4,16 @@
 :root {
   --main-bg-color: #1d1d1d;
   --welcome-page-bg-color: #b7b4c9;
+  --primary-color: #9580FF;
+  --hover-primary-color: #B580FF;
+  --secondary-color: #75CA51;
   --main-font-family: "DotGothic16", sans-serif;
   --secondary-font-family: "Fredoka One", cursive;
   --size-border-radius: 10px;
-  --font-size-buttons: 20px;
+  --font-size-buttons: 15px;
+  --width-buttons: 150px;
+  --height-buttons: 50px;
+ 
 }
 
 html,

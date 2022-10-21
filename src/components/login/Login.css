@@ -1,0 +1,110 @@
+.login__container {
+  background-color: var(--main-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login__container--data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 2px solid var(--primary-color);
+  border-radius: var(--size-border-radius);
+  width: 500px;
+  height: 600px;
+}
+
+.logo {
+  align-self: center;
+  background-image: url("../../assets/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 200px;
+  height: 200px;
+}
+
+.login__container--data--username,
+.login__container--data--password {
+  align-self: center;
+  background-color: var(--main-bg-color);
+  border: none;
+  border-bottom: 1px solid var(--primary-color);
+  width: 50%;
+  padding: 10px;
+}
+
+.login__container--data--username::placeholder,
+.login__container--data--password::placeholder {
+  color: var(--secondary-color);
+  text-align: left;
+  font-family: var(--main-font-family);
+  letter-spacing: 0.1rem;
+}
+
+.login__container--data--buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-self: center;
+  align-items: center;
+  width: 75%;
+  height: 70px;
+}
+
+.signIn__button {
+  background-color: var(--primary-color);
+  border: none;
+  border-radius: var(--size-border-radius);
+  color: white;
+  font-size: var(--font-size-buttons);
+  width: var(--width-buttons);
+  height: var(--height-buttons);
+}
+
+.google__button {
+  border: 1px solid white;
+  border-radius: var(--size-border-radius);
+  background-image: url("../../assets/google.png");
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: center;
+  width: var(--width-buttons);
+  height: var(--height-buttons);
+}
+
+.signIn__button:hover {
+  background-color: var(--hover-primary-color);
+  transform: scale(1.05);
+  transition: 0.2s ease-in-out;
+}
+
+.google__button:hover {
+  transform: scale(1.05);
+  transition: 0.2s ease-in-out;
+}
+
+span {
+  align-self: center;
+  font-family: var(--main-font-family);
+  font-size: 15px;
+  color: white;
+}
+
+span > a {
+  color: var(--secondary-color);
+  text-decoration: underline;
+  letter-spacing: 0.1rem;
+}
+
+span > a:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 375px) {
+  .login__container--data {
+    width: 350px;
+  }
+}
