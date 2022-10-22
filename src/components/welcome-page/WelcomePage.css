@@ -51,7 +51,7 @@ h1 {
   width: 90%;
 }
 
-button {
+.home__button {
   border: none;
   border-radius: var(--size-border-radius);
   background-color: black;
@@ -65,7 +65,7 @@ button {
   width: var(--width-buttons);
 }
 
-button:hover{
+.home__button:hover{
     background-color: var(--main-bg-color);
     transform: scale(1.05);
     transition: 0.2s ease-in-out;

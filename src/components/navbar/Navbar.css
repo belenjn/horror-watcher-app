@@ -25,45 +25,138 @@
   align-self: center;
   display: flex;
   font-family: var(--main-font-family);
-  justify-content: space-around;
+  justify-content: space-between;
   text-align: center;
-  width: 40%;
+  width: 25%;
   height: 50px;
   margin-right: 20px;
 }
 
-.first__option{ 
-    padding: 5px;
-}
-
+.first__option,
 .second__option {
-    padding: 5px;
+  padding: 5px;
 }
 
 .first__option:hover,
 .second__option:hover {
-    color: greenyellow;
-    cursor: pointer;
+  color: greenyellow;
+  cursor: pointer;
 }
 
 /* TODO: revisar el active */
 /* TODO: hacer navbar para movil */
 
 .first__option:active {
-    color: greenyellow;
+  color: greenyellow;
 }
 
 .logout {
+  align-self: center;
+  background-image: url("../../assets/log-out.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+}
+
+.logout:hover {
+  cursor: pointer;
+}
+
+.hamburger,
+.cross__menu {
+  display: none;
+}
+
+.logOut__button,
+.first__option--mobile,
+.second__option--mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 375px) {
+  .navbar__container {
+    justify-content: space-between;
+  }
+
+  .navbar__container--menu {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .logo__navbar {
+    margin-left: 0;
+  }
+
+  .hamburger {
     align-self: center;
-    background-image: url("../../assets/log-out.png");
+    background-image: url("../../assets/hamburger.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    display: flex;
     width: 30px;
     height: 30px;
-}
+  }
 
-.logout:hover{
-    cursor: pointer;
-}
+  .first__option,
+  .second__option,
+  .logout {
+    display: none;
+  }
 
+  .hidden {
+    display: none;
+  }
+
+  .cross {
+    align-self: center;
+    background-image: url("../../assets/cross.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 20px;
+    height: 20px;
+  }
+
+  .cross__menu {
+    background-color: var(--main-bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5px;
+  }
+
+  .first__option--mobile,
+  .second__option--mobile {
+    display: flex;
+    font-family: var(--main-font-family);
+    color: white;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+
+  .first__option--mobile:active,
+  .second__option--mobile:active {
+    color: greenyellow;
+  }
+
+  .logOut__button {
+    align-self: center;
+    align-items: center;
+    border: none;
+    border-radius: var(--size-border-radius);
+    background-color: #ff6100;
+    display: flex;
+    color: white;
+    font-family: var(--main-font-family);
+    font-size: var(--font-size-buttons);
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    padding: 5px;
+    height: var(--height-buttons);
+    width: var(--width-buttons);
+  }
+}

@@ -10,7 +10,7 @@ export const WelcomePage = () => {
       </div>
       <div className="logo__welcome" />
       <h1>{STRINGS.welcomePageTitle}</h1>
-      <button>{STRINGS.welcomePageButton}</button>
+      <button className="home__button">{STRINGS.welcomePageButton}</button>
     </div>
   );
 };
