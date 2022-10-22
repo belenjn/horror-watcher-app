@@ -41,14 +41,14 @@
 
 .first__option:hover,
 .second__option:hover {
-  color: greenyellow;
+  color: rgb(153, 227, 43);
   cursor: pointer;
 }
 
 /* TODO: revisar el active */
 
 .first__option:active {
-  color: greenyellow;
+  color: rgb(153, 227, 43);
 }
 
 .logout {
@@ -140,7 +140,7 @@
 
   .first__option--mobile:active,
   .second__option--mobile:active {
-    color: greenyellow;
+    color: rgb(153, 227, 43);
   }
 
   .logOut__button {

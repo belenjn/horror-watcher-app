@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { ExplorePage } from './components/explore-page/ExplorePage'
 import { Login } from './components/login/Login'
+import { NotFound } from './components/not-found/NotFound'
 import { Register } from './components/register/Register'
 import { WelcomePage } from './components/welcome-page/WelcomePage'
 
@@ -28,7 +29,7 @@ function App() {
            <ExplorePage/>
           }
         />
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
     </div>
