@@ -10,7 +10,7 @@
   font-family: var(--main-font-family);
 }
 
-.logo {
+.logo__navbar {
   align-self: center;
   background-image: url("../../assets/logo.png");
   background-repeat: no-repeat;

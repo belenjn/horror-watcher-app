@@ -5,7 +5,7 @@ export const Register = () => {
   return (
     <div className="register__container">
     <div className="register__container--data">
-      <div className="logo" />
+      <div className="logo__register" />
 
       <input
         className="register__container--data--username"

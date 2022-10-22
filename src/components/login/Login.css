@@ -16,7 +16,7 @@
   height: 600px;
 }
 
-.logo {
+.logo__login {
   align-self: center;
   background-image: url("../../assets/logo.png");
   background-repeat: no-repeat;

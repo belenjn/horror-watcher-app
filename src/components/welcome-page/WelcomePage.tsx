@@ -8,7 +8,7 @@ export const WelcomePage = () => {
         <div className="web__left" />
         <div className="web__right" />
       </div>
-      <div className="logo" />
+      <div className="logo__welcome" />
       <h1>{STRINGS.welcomePageTitle}</h1>
       <button>{STRINGS.welcomePageButton}</button>
     </div>

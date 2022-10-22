@@ -5,7 +5,7 @@ export const Login = () => {
   return (
     <div className="login__container">
       <div className="login__container--data">
-        <div className="logo" />
+        <div className="logo__login" />
 
         <input
           className="login__container--data--username"

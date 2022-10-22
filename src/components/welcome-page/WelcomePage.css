@@ -25,7 +25,7 @@
   background-image: url("../../assets/web-right.png");
 }
 
-.logo {
+.logo__welcome {
   background-image: url("../../assets/logo.png");
   background-repeat: no-repeat;
   background-size: contain;
