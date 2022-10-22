@@ -1,0 +1,59 @@
+.footer__container {
+  display: flex;
+  background-color: var(--primary-color);
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+  height: 170px;
+  width: 100%;
+}
+
+.footer__container--name,
+.footer__container--rights {
+  color: black;
+  margin-bottom: 20px;
+}
+
+.footer__container--icons {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 15%;
+}
+
+.github,
+.linkedin,
+.twitter {
+  align-self: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+}
+
+.github,
+.linkedin {
+  margin-right: 5px;
+}
+
+.github:hover,
+.linkedin:hover,
+.twitter:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+
+.github {
+  background-image: url("../../assets/github.png");
+}
+
+.linkedin {
+  background-image: url("../../assets/linkedin.png");
+}
+
+.twitter {
+  background-image: url("../../assets/twitter.png");
+}
