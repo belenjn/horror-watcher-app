@@ -1,9 +1,73 @@
 .grid__container {
-    background-color: var(--main-bg-color);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    justify-items: center;
-    gap: 20px;
+  background-color: var(--main-bg-color);
+  display: flex;
+  flex-direction: column;
+}
 
+.grid__container--input {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.grid__input {
+  align-self: center;
+  background-color: var(--main-bg-color);
+  border-radius: var(--size-border-radius);
+  border: 2px solid white;
+  color: white;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  padding: 20px;
+  width: 400px;
+  height: 60px;
+}
+
+.grid__input--image {
+  align-self: center;
+  background-image: url("../../assets/lupa.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin-right: 30px;
+  height: 50px;
+  width: 50px;
+}
+
+.grid__input::placeholder {
+  color: white;
+}
+
+.grid__container--items {
+  background-color: var(--main-bg-color);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  justify-items: center;
+  gap: 20px;
+}
+
+@media only screen and (max-width: 810px) {
+  .grid__container--items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .grid__container--items {
+    background-color: var(--main-bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .grid__input--image {
+    height: 40px;
+    width: 40px;
+  }
+
+  .grid__input {
+    width: 200px;
+  }
 }
