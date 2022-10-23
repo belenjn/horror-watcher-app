@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DotGothic16&family=Fredoka+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=DotGothic16&family=Fredoka+One&display=swap');
+
 
 :root {
   --main-bg-color: #1d1d1d;
@@ -8,7 +8,7 @@
   --hover-primary-color: #B580FF;
   --secondary-color: #75CA51;
   --main-font-family: "DotGothic16", sans-serif;
-  --secondary-font-family: "Fredoka One", cursive;
+  --secondary-font-family:'Creepster', cursive;;
   --size-border-radius: 10px;
   --font-size-buttons: 15px;
   --width-buttons: 150px;

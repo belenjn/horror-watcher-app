@@ -1,0 +1,30 @@
+.gridCardDetails__container {
+  background-color: var(--main-bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gridCardDetails__title {
+  align-self: center;
+  background-color: var(--main-bg-color);
+  font-family: var(--secondary-font-family);
+  font-size: 80px;
+  text-align: center;
+  color: var(--secondary-color);
+}
+
+.gridCardDetails__container--movie {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  width: 50%;
+}
+
+h4 {
+    color: white;
+    width: 50%;
+}
