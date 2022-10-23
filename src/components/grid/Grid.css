@@ -1,0 +1,9 @@
+.grid__container {
+    background-color: var(--main-bg-color);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    justify-items: center;
+    gap: 20px;
+
+}

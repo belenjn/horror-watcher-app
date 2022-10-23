@@ -2,8 +2,6 @@
   display: flex;
   background-color: var(--primary-color);
   flex-direction: column;
-  position: absolute;
-  bottom: 0;
   justify-content: center;
   height: 170px;
   width: 100%;
