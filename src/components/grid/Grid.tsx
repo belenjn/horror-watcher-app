@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { ClipLoader } from "react-spinners";
 import { fetchGetMovies } from "../../features/thunks/fetchGetMovies";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import { Movie } from "../../types/movie";
@@ -10,10 +11,18 @@ export const Grid = () => {
   const [page, setPage] = useState<number>(1);
   const dispatch = useAppDispatch();
 
+  const override: CSSProperties = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "#75CA51",
+  };
+
   const moviesLists: Movie[] = useAppSelector((state) => state.movies.movies);
 
   useEffect(() => {
-    dispatch(fetchGetMovies(page));
+    setTimeout(() => {
+      dispatch(fetchGetMovies(page));
+    }, 3000);
   }, [dispatch, page]);
 
   return (
@@ -31,7 +40,14 @@ export const Grid = () => {
         dataLength={moviesLists.length}
         next={() => setPage((prevPage) => prevPage + 1)}
         hasMore={true}
-        loader={<h4>Loading...</h4>}
+        loader={
+          <ClipLoader
+            aria-label="Loading..."
+            size={200}
+            loading={true}
+            cssOverride={override}
+          />
+        }
         endMessage={<span>You have seen it all!</span>}
       >
         <div className="grid__container--items">
