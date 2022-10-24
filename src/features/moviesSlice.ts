@@ -11,11 +11,11 @@ enum Status {
 }
 
 export interface StateOfMovies {
-  posts: Movie[];
+  movies: Movie[];
   status: Status;
 }
 
-const initialState = {
+const initialState: StateOfMovies = {
   movies: [],
   status: Status.empty,
 };
@@ -31,7 +31,12 @@ export const moviesSlice = createSlice({
       })
       .addCase(fetchGetMovies.fulfilled, (state, action): void => {
         state.status = Status.success;
-        state.movies = action.payload
+        if (state.movies.length !== 0) {
+          state.movies = [...state.movies, action.payload];
+          return;
+        }
+
+        state.movies = action.payload;
       })
       .addCase(fetchGetMovies.rejected, (state): void => {
         state.status = Status.failed;
