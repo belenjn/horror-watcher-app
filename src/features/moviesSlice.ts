@@ -30,13 +30,8 @@ export const moviesSlice = createSlice({
         state.status = Status.loading;
       })
       .addCase(fetchGetMovies.fulfilled, (state, action): void => {
-        state.status = Status.success;
-        if (state.movies.length !== 0) {
-          state.movies = [...state.movies, action.payload];
-          return;
-        }
+        state.movies = state.movies.concat(action.payload);
 
-        state.movies = action.payload;
       })
       .addCase(fetchGetMovies.rejected, (state): void => {
         state.status = Status.failed;

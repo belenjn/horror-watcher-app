@@ -50,6 +50,7 @@
   width: 50%;
 }
 
+
 @media only screen and (max-width: 810px) {
   .gridCardDetails__container--movie {
     align-self: center;

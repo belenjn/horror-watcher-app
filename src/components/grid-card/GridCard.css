@@ -1,12 +1,9 @@
-.gridCard__container {
-  display: flex;
-  flex-direction: column;
-}
+
 
 .gridCard__container--poster {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-self: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -16,48 +13,25 @@
   height: 400px;
 }
 
-
-.gridCard__container--poster--icons {
-  border-top: var(--size-border-radius);
-  display: flex;
-  padding: 8px;
-  justify-content: space-between;
-  width: 100%;
-  height: 9%;
-}
-
-.pending {
-  background-image: url("../../assets/pending.png");
-}
-
-.favorite {
-  background-image: url("../../assets/fav.png");
-}
-
-.pending,
-.favorite {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 20px;
-  height: 20px;
-}
-
-.pending:hover,
-.favorite:hover {
-  transform: scale(1.15);
-  transition: 0.3s ease-in-out;
-}
-
 .more-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.581);
   color: white;
   cursor: pointer;
   font-family: var(--main-font-family);
   font-size: 12px;
   text-align: center;
+  width: 100%;
   padding: 5px;
-  height: 8%;
+  height: 7%;
+}
+
+.more-info:hover {
+  background-color: rgba(71, 70, 70, 0.791);
+  color: var(--secondary-color);
+  transition: 0.3s ease-in;
 }
 
 
