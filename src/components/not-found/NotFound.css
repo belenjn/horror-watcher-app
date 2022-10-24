@@ -11,14 +11,15 @@
     align-self: center;
     color: #543864;
     text-align: center;
-    font-size: 120px;
+    font-size: 90px;
+    height: 120px;
+    overflow-y: hidden;
 }
 .notFound__container--secondTitle {
     align-self: center;
     color: #01024E;
     text-align: center;
     font-size: 30px;
-    margin-top: 10px;
 }
 
 .notFound__container--button {
@@ -29,8 +30,6 @@
     color: white;
     font-family: var(--main-font-family);
     font-size: var(--font-size-buttons);
-    margin-top: 80px;
-    margin-bottom: 80px;
     padding: 5px;
     height: var(--height-buttons);
     width: var(--width-buttons);
@@ -47,8 +46,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin-bottom: 20px;
+    padding: 5px;
     width: 50%;
+    overflow-y: hidden;
 }
 
 .casket,

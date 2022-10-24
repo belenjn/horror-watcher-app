@@ -19,14 +19,22 @@ export const Grid = () => {
 
   const moviesLists: Movie[] = useAppSelector((state) => state.movies.movies);
 
+  const handleClickToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   useEffect(() => {
-    setTimeout(() => {
-      dispatch(fetchGetMovies(page));
-    }, 3000);
+    dispatch(fetchGetMovies(page));
   }, [dispatch, page]);
 
   return (
     <div className="grid__container">
+      <button className="top__button" onClick={handleClickToTop}>
+        ⌃
+      </button>
       <div className="grid__container--input">
         <div className="grid__input--image" />
         <input
