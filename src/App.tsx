@@ -20,7 +20,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<ExplorePage />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/details" element={<GridCardDetails />} />
+          <Route path="/detail/:id" element={<GridCardDetails />} />
         </Routes>
       </BrowserRouter>
     </div>

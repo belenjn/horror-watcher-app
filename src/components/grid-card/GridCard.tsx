@@ -1,7 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { Movie } from "../../types/movie";
 import "./GridCard.css";
 
 export const GridCard = ({ movie }: { movie: Movie }) => {
+
+  const navigate = useNavigate()
+
+  const handleClickToMoreInfo = (id: number) => {
+    navigate(`/detail/${id}`)
+  }
+
   return (
     <>
       <div
