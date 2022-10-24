@@ -7,6 +7,7 @@ import { Login } from "./components/login/Login";
 import { NotFound } from "./components/not-found/NotFound";
 import { Register } from "./components/register/Register";
 import { WelcomePage } from "./components/welcome-page/WelcomePage";
+import { apiKey } from "./env";
 
 function App() {
 

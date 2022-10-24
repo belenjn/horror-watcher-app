@@ -7,7 +7,7 @@ export const moviesAPI = async (): Promise<any> => {
       .get(
         `https://api.themoviedb.org/3/discover/movie/?api_key=${apiKey}&with_genres=27`
       )
-      .then((res) => console.log(res.data));
+      .then((res) => res.data.results);
   } catch (error) {
     console.error(error);
     throw new Error("Something bad happened");

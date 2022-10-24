@@ -1,7 +1,19 @@
+import { useEffect } from "react";
+import { fetchGetMovies } from "../../features/thunks/fetchGetMovies";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
+import { Movie } from "../../types/movie";
 import { GridCard } from "../grid-card/GridCard";
 import "./Grid.css";
 
 export const Grid = () => {
+  const dispatch = useAppDispatch();
+
+  const moviesLists: Movie[] = useAppSelector((state) => state.movies.movies);
+
+  useEffect(() => {
+    dispatch(fetchGetMovies());
+  }, [dispatch]);
+
   return (
     <div className="grid__container">
       <div className="grid__container--input">
@@ -14,18 +26,11 @@ export const Grid = () => {
       </div>
 
       <div className="grid__container--items">
-        <GridCard />
-        <GridCard />
-        <GridCard />
-        <GridCard />
-        <GridCard />
-        <GridCard />
-        <GridCard />
-        <GridCard />
-        <GridCard />
-        <GridCard />
-        <GridCard />
-        <GridCard />
+        {moviesLists.map(
+          (movie: Movie): JSX.Element => (
+            <GridCard movie={movie} key={movie.id} />
+          )
+        )}
       </div>
     </div>
   );
