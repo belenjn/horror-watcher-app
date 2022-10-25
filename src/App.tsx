@@ -23,6 +23,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<ExplorePage movies={moviesLists}/>} />
+          <Route path="/myMovies" element={<div>My movies</div>} />
           <Route path="*" element={<NotFound />} />
           <Route path="/movies/:id" element={<GridCardDetails movies={moviesLists}/>} />
 
