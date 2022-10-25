@@ -4,13 +4,9 @@ import "./SelectorPages.css";
 export const SelectorPages = ({
   setFavorites,
   setPending,
-  favorites,
-  pending
 }: {
   setFavorites: React.Dispatch<React.SetStateAction<boolean>>;
   setPending: React.Dispatch<React.SetStateAction<boolean>>;
-  favorites: boolean;
-  pending: boolean;
 }) => {
 
   const handleClickFavorites = () => {
