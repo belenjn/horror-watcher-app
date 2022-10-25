@@ -13,6 +13,7 @@
   height: 400px;
 }
 
+
 .more-info {
   display: flex;
   align-items: center;
@@ -23,6 +24,7 @@
   font-family: var(--main-font-family);
   font-size: 12px;
   text-align: center;
+  text-decoration: none;
   width: 100%;
   padding: 5px;
   height: 7%;

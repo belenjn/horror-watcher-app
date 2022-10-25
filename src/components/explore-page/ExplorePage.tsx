@@ -1,13 +1,14 @@
+import { Movie } from "../../types/movie"
 import { Footer } from "../footer/Footer"
 import { Grid } from "../grid/Grid"
 import { Navbar } from "../navbar/Navbar"
 import "./ExplorePage.css"
 
-export const ExplorePage = () => {
+export const ExplorePage = ({movies} : {movies: Movie[]}) => {
   return (
     <>
     <Navbar/>
-    <Grid/>
+    <Grid movies={movies}/>
     <Footer/>
     </>
   )

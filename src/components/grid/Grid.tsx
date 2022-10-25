@@ -7,7 +7,7 @@ import { Movie } from "../../types/movie";
 import { GridCard } from "../grid-card/GridCard";
 import "./Grid.css";
 
-export const Grid = () => {
+export const Grid = ({movies} : {movies: Movie[]}) => {
   const [page, setPage] = useState<number>(1);
   const dispatch = useAppDispatch();
 
@@ -17,7 +17,6 @@ export const Grid = () => {
     borderColor: "#75CA51",
   };
 
-  const moviesLists: Movie[] = useAppSelector((state) => state.movies.movies);
 
   const handleClickToTop = () => {
     window.scrollTo({
@@ -45,7 +44,7 @@ export const Grid = () => {
       </div>
 
       <InfiniteScroll
-        dataLength={moviesLists.length}
+        dataLength={movies.length}
         next={() => setPage((prevPage) => prevPage + 1)}
         hasMore={true}
         loader={
@@ -59,9 +58,9 @@ export const Grid = () => {
         endMessage={<span>You have seen it all!</span>}
       >
         <div className="grid__container--items">
-          {moviesLists.map(
-            (movie: Movie): JSX.Element => (
-              <GridCard movie={movie} key={movie.id} />
+          {movies.map(
+            (movie: Movie, id: number): JSX.Element => (
+              <GridCard movie={movie} key={id}/>
             )
           )}
         </div>

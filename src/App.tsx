@@ -7,9 +7,13 @@ import { Login } from "./components/login/Login";
 import { NotFound } from "./components/not-found/NotFound";
 import { Register } from "./components/register/Register";
 import { WelcomePage } from "./components/welcome-page/WelcomePage";
-import { apiKey } from "./env";
+import { useAppSelector } from "./hooks/redux-hooks";
+import { Movie } from "./types/movie";
 
 function App() {
+
+  const moviesLists: Movie[] = useAppSelector((state) => state.movies.movies);
+
 
   return (
     <div className="App">
@@ -18,9 +22,10 @@ function App() {
           <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/" element={<ExplorePage />} />
+          <Route path="/" element={<ExplorePage movies={moviesLists}/>} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/detail/:id" element={<GridCardDetails />} />
+          <Route path="/movies/:id" element={<GridCardDetails movies={moviesLists}/>} />
+
         </Routes>
       </BrowserRouter>
     </div>
