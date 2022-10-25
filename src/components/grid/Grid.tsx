@@ -4,7 +4,7 @@ import { ClipLoader } from "react-spinners";
 import { fetchGetMovies } from "../../features/thunks/fetchGetMovies";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import { Movie } from "../../types/movie";
-import { GridCard } from "../grid-card/GridCard";
+import { GridCard } from "./grid-card/GridCard";
 import "./Grid.css";
 
 export const Grid = ({movies} : {movies: Movie[]}) => {

@@ -2,8 +2,9 @@ import axios from "axios";
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ExplorePage } from "./components/explore-page/ExplorePage";
-import { GridCardDetails } from "./components/grid-card-details/GridCardDetails";
+import { GridCardDetails } from "./components/grid/grid-card-details/GridCardDetails";
 import { Login } from "./components/login/Login";
+import { MyMoviesPage } from "./components/my-movies-page/MyMoviesPage";
 import { NotFound } from "./components/not-found/NotFound";
 import { Register } from "./components/register/Register";
 import { WelcomePage } from "./components/welcome-page/WelcomePage";
@@ -23,7 +24,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<ExplorePage movies={moviesLists}/>} />
-          <Route path="/myMovies" element={<div>My movies</div>} />
+          <Route path="/myMovies" element={<MyMoviesPage/>} />
           <Route path="*" element={<NotFound />} />
           <Route path="/movies/:id" element={<GridCardDetails movies={moviesLists}/>} />
 

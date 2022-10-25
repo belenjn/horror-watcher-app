@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Movie } from "../../types/movie";
+import { Movie } from "../../../types/movie";
 import "./GridCard.css";
 
 export const GridCard = ({ movie }: { movie: Movie }) => {
