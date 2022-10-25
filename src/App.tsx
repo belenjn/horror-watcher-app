@@ -12,9 +12,7 @@ import { useAppSelector } from "./hooks/redux-hooks";
 import { Movie } from "./types/movie";
 
 function App() {
-
   const moviesLists: Movie[] = useAppSelector((state) => state.movies.movies);
-
 
   return (
     <div className="App">
@@ -23,11 +21,13 @@ function App() {
           <Route path="/welcome" element={<WelcomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/" element={<ExplorePage movies={moviesLists}/>} />
-          <Route path="/myMovies" element={<MyMoviesPage/>} />
+          <Route path="/" element={<ExplorePage movies={moviesLists} />} />
+          <Route path="/myMovies" element={<MyMoviesPage />} />
+          <Route
+            path="/movies/:id"
+            element={<GridCardDetails movies={moviesLists} />}
+          />
           <Route path="*" element={<NotFound />} />
-          <Route path="/movies/:id" element={<GridCardDetails movies={moviesLists}/>} />
-
         </Routes>
       </BrowserRouter>
     </div>

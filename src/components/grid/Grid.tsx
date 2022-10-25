@@ -7,7 +7,7 @@ import { Movie } from "../../types/movie";
 import { GridCard } from "./grid-card/GridCard";
 import "./Grid.css";
 
-export const Grid = ({movies} : {movies: Movie[]}) => {
+export const Grid = ({ movies }: { movies: Movie[] }) => {
   const [page, setPage] = useState<number>(1);
   const dispatch = useAppDispatch();
 
@@ -16,7 +16,6 @@ export const Grid = ({movies} : {movies: Movie[]}) => {
     margin: "0 auto",
     borderColor: "#75CA51",
   };
-
 
   const handleClickToTop = () => {
     window.scrollTo({
@@ -60,7 +59,7 @@ export const Grid = ({movies} : {movies: Movie[]}) => {
         <div className="grid__container--items">
           {movies.map(
             (movie: Movie, id: number): JSX.Element => (
-              <GridCard movie={movie} key={id}/>
+              <GridCard movie={movie} key={id} />
             )
           )}
         </div>

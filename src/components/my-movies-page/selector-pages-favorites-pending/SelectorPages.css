@@ -1,0 +1,42 @@
+.gridMoviesPage__container {
+  background-color: var(--main-bg-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.gridMoviesPage__container--pages {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 30%;
+}
+
+.gridMoviesPage__container--pages--favorites,
+.gridMoviesPage__container--pages--pending {
+  color: white;
+  font-family: var(--main-font-family);
+  text-align: center;
+  padding: 10px;
+  width: 50%;
+}
+
+.gridMoviesPage__container--pages--favorites {
+  border-right: 1px solid var(--secondary-color);
+}
+
+.gridMoviesPage__container--pages--favorites > a,
+.gridMoviesPage__container--pages--pending > a {
+  text-decoration: none;
+  color: white;
+}
+
+.gridMoviesPage__container--pages--favorites:hover,
+.gridMoviesPage__container--pages--pending:hover {
+  cursor: pointer;
+}
+
+.gridMoviesPage__container--pages--favorites > a:hover,
+.gridMoviesPage__container--pages--pending > a:hover {
+  color: #80abff;
+}
