@@ -40,3 +40,9 @@
 .gridMoviesPage__container--pages--pending > a:hover {
   color: #80abff;
 }
+
+
+.gridMoviesPage__container--pages--favorites > a:visited,
+.gridMoviesPage__container--pages--pending > a:visited {
+  color: #80abff;
+}

@@ -1,7 +1,11 @@
-import React from 'react'
+import "./Pending.css"
 
 export const Pending = () => {
   return (
-    <div>Pending</div>
+    <div className='pending__container'>
+        <h1 className="pending__container--title">
+            Pending
+        </h1>
+    </div>
   )
 }
