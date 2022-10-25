@@ -1,9 +1,10 @@
 .footer__container {
+  align-self: baseline;
   display: flex;
   background-color: var(--primary-color);
   flex-direction: column;
   justify-content: center;
-  height: 170px;
+  height: 150px;
   width: 100%;
 }
 

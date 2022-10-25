@@ -2,6 +2,7 @@
   background-color: var(--main-bg-color);
   display: flex;
   flex-direction: column;
+  margin-top: 100px;
 }
 
 .top__button {
