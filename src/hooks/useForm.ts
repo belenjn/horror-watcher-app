@@ -1,10 +1,16 @@
 import { useState } from "react";
 
-export const useForm = (initialForm = {}) => {
+export interface initialForm {
+  email: string;
+  password: string;
+}
+
+export const useForm = (initialForm: initialForm | {}) => {
   const [formState, setFormState] = useState(initialForm);
 
-  const onInputChange = ({ target }: any) => {
+  const onInputChange = ({ target }: { target: any }) => {
     const { name, value } = target;
+
     setFormState({
       ...formState,
       [name]: value,
