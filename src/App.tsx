@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ExplorePage } from "./components/explore-page/ExplorePage";
-import { GridCardDetails } from "./components/grid/grid-card-details/GridCardDetails";
+import { GridCardDetails } from "./components/explore-page/grid/grid-card-details/GridCardDetails";
 import { Login } from "./components/login/Login";
 import { MyMoviesPage } from "./components/my-movies-page/MyMoviesPage";
 import { NotFound } from "./components/not-found/NotFound";

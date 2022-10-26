@@ -1,5 +1,5 @@
 import "./GridCardDetails.css";
-import { Movie } from "../../../types/movie";
+import { Movie } from "../../../../types/movie";
 import { useNavigate, useParams } from "react-router-dom";
 
 export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
