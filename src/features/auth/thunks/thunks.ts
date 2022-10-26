@@ -17,3 +17,20 @@ export const checkingAuthentication = (email: string | undefined, password: stri
     dispatch(checkingCredentials())
   };
 };
+
+export const startGoogleSignIn = () => {
+    return async (
+      dispatch: ThunkDispatch<
+        {
+          auth: StateOfAuth;
+          movies: StateOfMovies;
+        },
+        undefined,
+        AnyAction
+      > &
+        Dispatch<AnyAction>
+    ) => {
+      dispatch(checkingCredentials())
+    };
+  };
+  

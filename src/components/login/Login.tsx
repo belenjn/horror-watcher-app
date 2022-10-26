@@ -1,5 +1,5 @@
 import { FormEvent } from "react";
-import { checkingAuthentication } from "../../features/auth/thunks/thunks";
+import { checkingAuthentication, startGoogleSignIn } from "../../features/auth/thunks/thunks";
 import { useAppDispatch } from "../../hooks/redux-hooks";
 import { useForm } from "../../hooks/useForm";
 import { STRINGS } from "../../utils/strings";
@@ -19,7 +19,7 @@ export const Login = () => {
   };
 
   const onGoogleSignIn = () => {
-    console.log("on google sign in");
+    dispatch(startGoogleSignIn())
   };
 
   return (
