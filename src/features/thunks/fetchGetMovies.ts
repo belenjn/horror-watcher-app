@@ -1,7 +1,7 @@
-import { AsyncThunk, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import { moviesAPI } from "../moviesAPI";
 
-export const fetchGetMovies= createAsyncThunk(
+export const fetchGetMovies = createAsyncThunk(
   "fetch movies function",
   async (page: number) => {
     return await moviesAPI(page);

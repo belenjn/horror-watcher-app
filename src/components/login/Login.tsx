@@ -1,9 +1,13 @@
 import { FormEvent } from "react";
+import { checkingAuthentication } from "../../features/auth/thunks/thunks";
+import { useAppDispatch } from "../../hooks/redux-hooks";
 import { useForm } from "../../hooks/useForm";
 import { STRINGS } from "../../utils/strings";
 import "./Login.css";
 
 export const Login = () => {
+  const dispatch = useAppDispatch();
+
   const { email, password, onInputChange } = useForm({
     email: "user@gmail.com",
     password: "123456",
@@ -11,8 +15,7 @@ export const Login = () => {
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
-
-    console.log({ email, password });
+    dispatch(checkingAuthentication(email, password));
   };
 
   const onGoogleSignIn = () => {
