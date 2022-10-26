@@ -25,7 +25,7 @@ export const Navbar = () => {
 
   return (<>
   <div className="navbar__container">
-      <div className="logo__navbar" />
+      <div className="logo__navbar" onClick={handleClickExplore}/>
       <div className="navbar__container--menu">
         <span className="first__option" onClick={handleClickMyMovies}>My movies</span>
         <span className="second__option" onClick={handleClickExplore}>Explore</span>
