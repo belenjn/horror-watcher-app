@@ -1,15 +1,17 @@
-import { FormEvent } from "react";
+import { FormEvent, useMemo } from "react";
 import {
   checkingAuthentication,
   startGoogleSignIn,
 } from "../../features/auth/thunks/thunks";
-import { useAppDispatch } from "../../hooks/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import { useForm } from "../../hooks/useForm";
 import { STRINGS } from "../../utils/strings";
 import "./Login.css";
 
 export const Login = () => {
   const dispatch = useAppDispatch();
+
+  const { status } = useAppSelector((state) => state.auth);
 
   const { email, password, onInputChange } = useForm({
     email: "user@gmail.com",
@@ -24,6 +26,8 @@ export const Login = () => {
   const onGoogleSignIn = () => {
     dispatch(startGoogleSignIn());
   };
+
+  const isAuthenticating = useMemo(() => status === "checking", [status]);
 
   return (
     <div className="login__container">
@@ -47,13 +51,18 @@ export const Login = () => {
           onChange={onInputChange}
         />
         <div className="login__container--data--buttons">
-          <button type="submit" className="signIn__button">
+          <button 
+          type="submit" 
+          className="signIn__button"
+          disabled={isAuthenticating}
+          >
             {STRINGS.signInButton}
           </button>
           <button
             type="button"
             className="google__button"
             onClick={onGoogleSignIn}
+            disabled={isAuthenticating}
           />
         </div>
 
