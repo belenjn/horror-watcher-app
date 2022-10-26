@@ -70,6 +70,7 @@
   border: 1px solid white;
   border-radius: var(--size-border-radius);
   background-image: url("../../assets/google.png");
+  background-color: transparent;
   background-repeat: no-repeat;
   background-size: 30px;
   background-position: center;

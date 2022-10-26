@@ -12,8 +12,12 @@ export const Login = () => {
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
 
-    console.log({email, password})
-  }
+    console.log({ email, password });
+  };
+
+  const onGoogleSignIn = () => {
+    console.log("on google sign in");
+  };
 
   return (
     <div className="login__container">
@@ -37,8 +41,14 @@ export const Login = () => {
           onChange={onInputChange}
         />
         <div className="login__container--data--buttons">
-          <button className="signIn__button" type="submit">{STRINGS.signInButton}</button>
-          <div className="google__button" />
+          <button type="submit" className="signIn__button">
+            {STRINGS.signInButton}
+          </button>
+          <button
+            type="button"
+            className="google__button"
+            onClick={onGoogleSignIn}
+          />
         </div>
 
         <span>
