@@ -42,7 +42,6 @@
   color: var(--secondary-color);
   text-align: left;
   font-family: var(--main-font-family);
-  letter-spacing: 0.1rem;
 }
 
 
@@ -99,7 +98,6 @@ span {
 span > a {
   color: var(--secondary-color);
   text-decoration: underline;
-  letter-spacing: 0.1rem;
 }
 
 span > a:hover {
