@@ -1,9 +1,12 @@
 import { AnyAction, Dispatch, ThunkDispatch } from "@reduxjs/toolkit";
 import { signInWithGoogle } from "../../../firebase/providers";
 import { StateOfMovies } from "../../moviesSlice";
-import { checkingCredentials, StateOfAuth } from "../authSlice";
+import { checkingCredentials, login, logout, StateOfAuth } from "../authSlice";
 
-export const checkingAuthentication = (email: string | undefined, password: string | undefined) => {
+export const checkingAuthentication = (
+  email: string | undefined,
+  password: string | undefined
+) => {
   return async (
     dispatch: ThunkDispatch<
       {
@@ -15,26 +18,27 @@ export const checkingAuthentication = (email: string | undefined, password: stri
     > &
       Dispatch<AnyAction>
   ) => {
-    dispatch(checkingCredentials())
+    dispatch(checkingCredentials());
   };
 };
 
 export const startGoogleSignIn = () => {
-    return async (
-      dispatch: ThunkDispatch<
-        {
-          auth: StateOfAuth;
-          movies: StateOfMovies;
-        },
-        undefined,
-        AnyAction
-      > &
-        Dispatch<AnyAction>
-    ) => {
-      dispatch(checkingCredentials());
-      const result = await signInWithGoogle();
+  return async (
+    dispatch: ThunkDispatch<
+      {
+        auth: StateOfAuth;
+        movies: StateOfMovies;
+      },
+      undefined,
+      AnyAction
+    > &
+      Dispatch<AnyAction>
+  ) => {
+    dispatch(checkingCredentials());
+    const result = await signInWithGoogle();
 
-      console.log({result})
-    };
+    if (!result.ok) return dispatch(logout(result.errorMessage));
+
+    dispatch(login(result));
   };
-  
+};
