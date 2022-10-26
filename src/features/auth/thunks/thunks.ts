@@ -1,4 +1,5 @@
 import { AnyAction, Dispatch, ThunkDispatch } from "@reduxjs/toolkit";
+import { signInWithGoogle } from "../../../firebase/providers";
 import { StateOfMovies } from "../../moviesSlice";
 import { checkingCredentials, StateOfAuth } from "../authSlice";
 
@@ -30,7 +31,10 @@ export const startGoogleSignIn = () => {
       > &
         Dispatch<AnyAction>
     ) => {
-      dispatch(checkingCredentials())
+      dispatch(checkingCredentials());
+      const result = await signInWithGoogle();
+
+      console.log({result})
     };
   };
   
