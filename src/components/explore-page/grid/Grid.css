@@ -51,7 +51,7 @@
 
 .grid__input--image {
   align-self: center;
-  background-image: url("../../assets/lupa.png");
+  background-image: url("../../../assets/lupa.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

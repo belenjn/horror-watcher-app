@@ -2,6 +2,7 @@ import { useState } from "react";
 
 export interface initialForm {
   email: string;
+  displayName: string;
   password: string;
 }
 
