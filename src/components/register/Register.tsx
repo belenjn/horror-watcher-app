@@ -1,31 +1,35 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useForm } from "../../hooks/useForm";
 import { STRINGS } from "../../utils/strings";
 import Swal from "sweetalert2";
 import "./Register.css";
-import { useAppDispatch } from "../../hooks/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import { startCreatingUserWithEmailPassword } from "../../features/auth/thunks/thunks";
+
+const formData = {
+  email: "",
+  password: "",
+  displayName: "",
+};
+
+const formValidations = {
+  email: [(value: string) => value.includes("@"), "The email must have an @"],
+  password: [
+    (value: string) => value.length >= 6,
+    "The password must have 6 characters min",
+  ],
+  displayName: [(value: string) => value.length >= 1, "The name is mandatory"],
+};
 
 export const Register = () => {
   const dispatch = useAppDispatch();
 
-  const formData = {
-    email: "user@gmail.com",
-    password: "123456",
-    displayName: "User Test",
-  };
+  const { status, errorMessage } = useAppSelector((state) => state.auth);
 
-  const formValidations = {
-    email: [(value: string) => value.includes("@"), "The email must have an @"],
-    password: [
-      (value: string) => value.length >= 6,
-      "The password must have 6 characters min",
-    ],
-    displayName: [
-      (value: string) => value.length >= 1,
-      "The name is mandatory",
-    ],
-  };
+  const isCheckingAuthentication = useMemo(
+    () => status === "checking",
+    [status]
+  );
 
   const {
     displayName,
@@ -80,8 +84,20 @@ export const Register = () => {
           value={password}
           onChange={onInputChange}
         />
+        <div
+          className={
+            !!errorMessage ? "register__container--data--alert " : "hidden"
+          }
+        >
+          {errorMessage}
+        </div>
+
         <div className="register__container--data--buttons">
-          <button className="signIn__button" type="submit">
+          <button
+            disabled={isCheckingAuthentication}
+            className="signIn__button"
+            type="submit"
+          >
             {STRINGS.signUpButton}
           </button>
         </div>
