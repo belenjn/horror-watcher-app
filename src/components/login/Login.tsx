@@ -1,8 +1,8 @@
 import { FormEvent, useMemo } from "react";
 import { Link } from "react-router-dom";
 import {
-  checkingAuthentication,
   startGoogleSignIn,
+  startLoginWithEmailPassword,
 } from "../../features/auth/thunks/thunks";
 import { useAppDispatch, useAppSelector } from "../../hooks/redux-hooks";
 import { useForm } from "../../hooks/useForm";
@@ -12,16 +12,17 @@ import "./Login.css";
 export const Login = () => {
   const dispatch = useAppDispatch();
 
-  const { status } = useAppSelector((state) => state.auth);
+  const { status, errorMessage } = useAppSelector((state) => state.auth);
+
 
   const { email, password, onInputChange } = useForm({
-    email: "user@gmail.com",
-    password: "123456",
+    email: "",
+    password: "",
   }, {});
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
-    dispatch(checkingAuthentication(email, password));
+    dispatch(startLoginWithEmailPassword({email, password}));
   };
 
   const onGoogleSignIn = () => {
@@ -51,6 +52,13 @@ export const Login = () => {
           value={password}
           onChange={onInputChange}
         />
+          <div
+          className={
+            !!errorMessage ? "register__container--data--alert " : "hidden"
+          }
+        >
+          {errorMessage}
+        </div>
         <div className="login__container--data--buttons">
           <button 
           type="submit" 

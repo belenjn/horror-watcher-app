@@ -1,5 +1,6 @@
 import { AnyAction, Dispatch, ThunkDispatch } from "@reduxjs/toolkit";
 import {
+  loginWithEmailPassword,
   registerUserWithEmailPassword,
   signInWithGoogle,
 } from "../../../firebase/providers";
@@ -77,5 +78,35 @@ export const startCreatingUserWithEmailPassword = ({
     if (!ok) return dispatch(logout({ errorMessage }));
 
     dispatch(login({ uid, displayName, email }));
+  };
+};
+
+export const startLoginWithEmailPassword = ({
+  email,
+  password,
+}: {
+  email: string;
+  password: string;
+}) => {
+  return async (
+    dispatch: ThunkDispatch<
+      {
+        auth: StateOfAuth;
+        movies: StateOfMovies;
+      },
+      undefined,
+      AnyAction
+    > &
+      Dispatch<AnyAction>
+  ) => {
+    dispatch(checkingCredentials());
+
+    const result = await loginWithEmailPassword({ email, password });
+
+    console.log(result);
+
+    if (!result.ok) return dispatch(logout(result));
+
+    dispatch(login(result));
   };
 };
