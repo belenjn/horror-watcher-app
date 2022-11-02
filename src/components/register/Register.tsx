@@ -3,8 +3,12 @@ import { useForm } from "../../hooks/useForm";
 import { STRINGS } from "../../utils/strings";
 import Swal from "sweetalert2";
 import "./Register.css";
+import { useAppDispatch } from "../../hooks/redux-hooks";
+import { startCreatingUserWithEmailPassword } from "../../features/auth/thunks/thunks";
 
 export const Register = () => {
+  const dispatch = useAppDispatch();
+
   const formData = {
     email: "user@gmail.com",
     password: "123456",
@@ -40,6 +44,10 @@ export const Register = () => {
     displayNameValid ? Swal.fire("Oops", displayNameValid, "error") : "";
     passwordValid ? Swal.fire("Oops", passwordValid, "error") : "";
     emailValid ? Swal.fire("Oops", emailValid, "error") : "";
+
+    if (!isFormValid) return;
+
+    dispatch(startCreatingUserWithEmailPassword(formState));
   };
 
   return (
