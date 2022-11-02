@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "../../hooks/useForm";
 import { STRINGS } from "../../utils/strings";
+import Swal from "sweetalert2";
 import "./Register.css";
 
 export const Register = () => {
@@ -10,14 +11,36 @@ export const Register = () => {
     displayName: "User Test",
   };
 
-  const { displayName, email, password, onInputChange, formState } =
-    useForm(formData);
+  const formValidations = {
+    email: [(value: string) => value.includes("@"), "The email must have an @"],
+    password: [
+      (value: string) => value.length >= 6,
+      "The password must have 6 characters min",
+    ],
+    displayName: [
+      (value: string) => value.length >= 1,
+      "The name is mandatory",
+    ],
+  };
+
+  const {
+    displayName,
+    email,
+    password,
+    onInputChange,
+    formState,
+    displayNameValid,
+    emailValid,
+    passwordValid,
+    isFormValid,
+  } = useForm(formData, formValidations);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    displayNameValid ? Swal.fire("Oops", displayNameValid, "error") : "";
+    passwordValid ? Swal.fire("Oops", passwordValid, "error") : "";
+    emailValid ? Swal.fire("Oops", emailValid, "error") : "";
   };
-
-//TODO: hacer validacion de los inputs segun si su valor cumple con el min length y sino que arroje error
 
   return (
     <div className="register__container">
@@ -25,8 +48,6 @@ export const Register = () => {
         <div className="logo__register" />
 
         <input
-          required
-          minLength={10}
           className="register__container--data--username"
           type="text"
           placeholder="Name"
@@ -34,8 +55,8 @@ export const Register = () => {
           value={displayName}
           onChange={onInputChange}
         />
+
         <input
-          required
           className="register__container--data--email"
           type="text"
           placeholder="Email"
@@ -44,8 +65,6 @@ export const Register = () => {
           onChange={onInputChange}
         />
         <input
-          required
-          minLength={6}
           className="register__container--data--password"
           type="password"
           placeholder="Password"

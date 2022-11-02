@@ -1,4 +1,5 @@
 import { FormEvent, useMemo } from "react";
+import { Link } from "react-router-dom";
 import {
   checkingAuthentication,
   startGoogleSignIn,
@@ -16,7 +17,7 @@ export const Login = () => {
   const { email, password, onInputChange } = useForm({
     email: "user@gmail.com",
     password: "123456",
-  });
+  }, {});
 
   const onSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -67,7 +68,7 @@ export const Login = () => {
         </div>
 
         <span>
-          {STRINGS.signUpQuote} <a>{STRINGS.signUpLink}</a>
+          {STRINGS.signUpQuote} <Link to="/register">{STRINGS.signUpLink}</Link>
         </span>
       </form>
     </div>

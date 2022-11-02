@@ -73,7 +73,10 @@
     transition: 0.2s ease-in-out;
   }
   
-  
+  .swal2-container {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
+  }
   
   @media only screen and (max-width: 375px) {
     .register__container--data {
