@@ -76,7 +76,7 @@ export const Login = () => {
         </div>
 
         <span>
-          {STRINGS.signUpQuote} <Link to="/register">{STRINGS.signUpLink}</Link>
+          {STRINGS.signUpQuote} <Link to="/auth/register">{STRINGS.signUpLink}</Link>
         </span>
       </form>
     </div>

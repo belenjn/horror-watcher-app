@@ -5,7 +5,7 @@ export const NotFound = () => {
   const navigate = useNavigate();
 
   const handleClickToHomePage = (): void => {
-    navigate("/");
+    navigate("/login");
   };
   return (
     <div className="notFound__container">
@@ -17,7 +17,7 @@ export const NotFound = () => {
         className="notFound__container--button"
         onClick={handleClickToHomePage}
       >
-        Back to home
+        Exit
       </button>
       <div className="illustrations">
         <div className="casket" />

@@ -9,7 +9,7 @@ export interface StateOfAuth {
 }
 
 const initialState: StateOfAuth = {
-  status: "not-authenticated", // checking, not-authenticated, authenticated
+  status: "checking",
   userId: null,
   email: null,
   displayName: null,
