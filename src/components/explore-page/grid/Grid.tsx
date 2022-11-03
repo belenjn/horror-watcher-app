@@ -1,7 +1,7 @@
 import { ChangeEvent, CSSProperties, useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { ClipLoader } from "react-spinners";
-import { fetchGetMovies } from "../../../features/movies/thunks/fetchGetMovies";
+import { fetchGetMovies } from "../../../features/movies/thunks/thunks";
 import { useAppDispatch } from "../../../hooks/redux-hooks";
 import useDebounce from "../../../hooks/useDebounce";
 import { Movie } from "../../../types/movie";

@@ -7,3 +7,4 @@ export const fetchGetMovies = createAsyncThunk(
     return await moviesAPI(page);
   }
 );
+
