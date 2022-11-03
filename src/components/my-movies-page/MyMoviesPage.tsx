@@ -12,7 +12,7 @@ export const MyMoviesPage = () => {
   return (
     <>
       <Navbar />
-      <SelectorPages setFavorites={setFavorites} setPending={setPending} />
+      <SelectorPages favorites={favorites} pending={pending} setFavorites={setFavorites} setPending={setPending} />
       {favorites === true ? <Favorites /> : <Pending />}
 
       <Footer />
