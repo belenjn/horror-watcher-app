@@ -63,7 +63,6 @@ export const Grid = ({ movies }: { movies: Movie[] }) => {
           className="grid__input"
           type="text"
           value={search}
-          placeholder="Search by title, year..."
         />
       </div>
 
