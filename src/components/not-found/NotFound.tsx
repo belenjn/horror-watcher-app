@@ -5,7 +5,7 @@ export const NotFound = () => {
   const navigate = useNavigate();
 
   const handleClickToHomePage = (): void => {
-    navigate("/login");
+    navigate("/auth/login");
   };
   return (
     <div className="notFound__container">
