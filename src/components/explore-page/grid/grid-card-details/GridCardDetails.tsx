@@ -2,9 +2,13 @@ import "./GridCardDetails.css";
 import { Movie } from "../../../../types/movie";
 import { useNavigate, useParams } from "react-router-dom";
 import { STRINGS } from "../../../../utils/strings";
+import { useAppDispatch } from "../../../../hooks/redux-hooks";
+import { startAddMovieToFavorites } from "../../../../features/movies/thunks/thunks";
 
 export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
   const { id } = useParams();
+
+  const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
 
@@ -15,6 +19,10 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
   const handleClickToHome = () => {
     navigate("/");
   };
+
+  const onClickAddMovieFavorites = () => {
+    dispatch(startAddMovieToFavorites());
+  }
 
   return (
     <div className="gridCardDetails__container animate__animated animate__fadeIn animate__faster">
@@ -49,7 +57,7 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
 
           <div className="gridCardDetails__buttons">
             <button className="pending">{STRINGS.gridCardDetailsPendingButton}</button>
-            <button className="favorites">{STRINGS.gridCardDetailsFavoriteButton}</button>
+            <button className="favorites" onClick={onClickAddMovieFavorites}>{STRINGS.gridCardDetailsFavoriteButton}</button>
           </div>
           <button className="home" onClick={handleClickToHome}>{STRINGS.gridCardDetailsHomeButton}</button>
 

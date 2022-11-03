@@ -8,3 +8,9 @@ export const fetchGetMovies = createAsyncThunk(
   }
 );
 
+export const startAddMovieToFavorites = createAsyncThunk(
+  "add movie to favorites",
+  async (dispatch) => {
+    console.log("adding movie to fav movies");
+  }
+);

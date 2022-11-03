@@ -22,6 +22,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/welcome" element={<WelcomePage />} />
+          
           {status === "authenticated" ? (
             <Route path="/*" element={<MoviesRoutes movies={moviesLists} />} />
           ) : (
