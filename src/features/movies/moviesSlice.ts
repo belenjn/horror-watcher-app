@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../store/store";
-import { Movie } from "../types/movie";
+import { RootState } from "../../store/store";
+import { Movie } from "../../types/movie";
 import { fetchGetMovies } from "./thunks/fetchGetMovies";
 
 enum Status {

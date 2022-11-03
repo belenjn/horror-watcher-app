@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiKey } from "../env";
+import { apiKey } from "../../env";
 
 export const moviesAPI = async (page: number) => {
   try {

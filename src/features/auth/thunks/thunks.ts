@@ -6,7 +6,7 @@ import {
   registerUserWithEmailPassword,
   signInWithGoogle,
 } from "../../../firebase/providers";
-import { StateOfMovies } from "../../moviesSlice";
+import { StateOfMovies } from "../../movies/moviesSlice";
 import { checkingCredentials, login, logout, StateOfAuth } from "../authSlice";
 
 export const checkingAuthentication = (
