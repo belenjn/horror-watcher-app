@@ -1,6 +1,6 @@
 # horror-watcher-app
 
-Page dedicated only to horror movies.
+App dedicated only to horror movies.
 It has a login page, registration, movie browser and personal section to view the movies you have saved in favorites or pending to see.
 
 ## How to start app:
