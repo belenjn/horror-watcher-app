@@ -55,7 +55,7 @@ export const Register = () => {
   };
 
   return (
-    <div className="register__container">
+    <div className="register__container animate__animated animate__fadeIn animate__faster">
       <form onSubmit={onSubmit} className="register__container--data">
         <div className="logo__register" />
 
