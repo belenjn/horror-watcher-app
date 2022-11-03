@@ -1,6 +1,7 @@
 import "./GridCardDetails.css";
 import { Movie } from "../../../../types/movie";
 import { useNavigate, useParams } from "react-router-dom";
+import { STRINGS } from "../../../../utils/strings";
 
 export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
   const { id } = useParams();
@@ -28,29 +29,29 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
         />
         <div className="gridCardDetails__container--movie--text">
           <span>
-            <b>Release date: </b>
+            <b>{STRINGS.gridCardDetailsReleaseDate} </b>
             {movie.release_date}
           </span>
           <span>
-            <b>Original Language: </b>
+            <b>{STRINGS.gridCardDetailsOriginalLanguage} </b>
             {movie.original_language.toLocaleUpperCase()}
           </span>
 
           <span>
-            <b>Vote: </b>
+            <b>{STRINGS.gridCardDetailsVote} </b>
             {movie.vote_average}
           </span>
 
           <span>
-            <b>Overview: </b>
+            <b>{STRINGS.gridCardDetailsOverview} </b>
             {movie.overview}
           </span>
 
           <div className="gridCardDetails__buttons">
-            <button className="pending">Add to pending</button>
-            <button className="favorites">Add to favorites</button>
+            <button className="pending">{STRINGS.gridCardDetailsPendingButton}</button>
+            <button className="favorites">{STRINGS.gridCardDetailsFavoriteButton}</button>
           </div>
-          <button className="home" onClick={handleClickToHome}>Back to home</button>
+          <button className="home" onClick={handleClickToHome}>{STRINGS.gridCardDetailsHomeButton}</button>
 
         </div>
       </div>

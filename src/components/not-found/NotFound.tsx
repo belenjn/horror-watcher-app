@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { STRINGS } from "../../utils/strings";
 import "./NotFound.css";
 
 export const NotFound = () => {
@@ -9,15 +10,15 @@ export const NotFound = () => {
   };
   return (
     <div className="notFound__container">
-      <h1 className="notFound__container--title">404</h1>
+      <h1 className="notFound__container--title">{STRINGS.notFoundNumber}</h1>
       <h5 className="notFound__container--secondTitle">
-        We couldn’t find this page
+        {STRINGS.notFoundText}
       </h5>
       <button
         className="notFound__container--button"
         onClick={handleClickToHomePage}
       >
-        Exit
+        {STRINGS.notFoundButton}
       </button>
       <div className="illustrations">
         <div className="casket" />

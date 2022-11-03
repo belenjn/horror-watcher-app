@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { startLogout } from "../../features/auth/thunks/thunks";
 import { useAppDispatch } from "../../hooks/redux-hooks";
+import { STRINGS } from "../../utils/strings";
 import "./Navbar.css";
 
 export const Navbar = () => {
@@ -13,8 +14,8 @@ export const Navbar = () => {
 
   const onLogout = (): void => {
     dispatch(startLogout());
-    navigate("/welcome")
-  }
+    navigate("/welcome");
+  };
 
   const handleClickHamburger = (): void => {
     setIsOpen(true);
@@ -24,44 +25,43 @@ export const Navbar = () => {
     setIsOpen(false);
   };
 
-  const handleClickExplore = ():void => {
-    navigate("/")
-  }
+  const handleClickExplore = (): void => {
+    navigate("/");
+  };
 
-  const handleClickMyMovies = ():void => {
-    navigate("/myMovies")
-  }
+  const handleClickMyMovies = (): void => {
+    navigate("/myMovies");
+  };
 
-  return (<>
-  <div className="navbar__container">
-      <div className="logo__navbar" onClick={handleClickExplore}/>
-      <div className="navbar__container--menu">
-        <span className="first__option" onClick={handleClickMyMovies}>My movies</span>
-        <span className="second__option" onClick={handleClickExplore}>Explore</span>
-        <div className="logout" onClick={onLogout}/>
-        <div
-          className={
-            isOpen === true ? "hidden" : "hamburger"
-          }
-          onClick={handleClickHamburger}
-        />
-        <div
-          className={
-            isOpen === true ? "cross" : "hidden"
-          }
-          onClick={handleClickCross}
-        />
-       
-      </div>
-    </div>
-    <div className={
-            isOpen === true ? "cross__menu" : "hidden"
-          }>
-        <span className="first__option--mobile">My movies</span>
-        <span className="second__option--mobile">Explore</span>
-        <button className="logOut__button" onClick={onLogout}>Log out</button>
+  return (
+    <>
+      <div className="navbar__container">
+        <div className="logo__navbar" onClick={handleClickExplore} />
+        <div className="navbar__container--menu">
+          <span className="first__option" onClick={handleClickMyMovies}>
+            {STRINGS.navbarMovies}
+          </span>
+          <span className="second__option" onClick={handleClickExplore}>
+            {STRINGS.navbarExplore}
+          </span>
+          <div className="logout" onClick={onLogout} />
+          <div
+            className={isOpen === true ? "hidden" : "hamburger"}
+            onClick={handleClickHamburger}
+          />
+          <div
+            className={isOpen === true ? "cross" : "hidden"}
+            onClick={handleClickCross}
+          />
         </div>
-  </>
-    
+      </div>
+      <div className={isOpen === true ? "cross__menu" : "hidden"}>
+        <span className="first__option--mobile">{STRINGS.navbarMovies}</span>
+        <span className="second__option--mobile">{STRINGS.navbarExplore}</span>
+        <button className="logOut__button" onClick={onLogout}>
+          {STRINGS.navbarLogout}
+        </button>
+      </div>
+    </>
   );
 };
