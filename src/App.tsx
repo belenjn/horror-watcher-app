@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { NotFound } from "./components/not-found/NotFound";
-import { CheckAuth } from "./components/ui/CheckAuth";
+import { CheckAuth } from "./components/check-auth/CheckAuth";
 import { WelcomePage } from "./components/welcome-page/WelcomePage";
 import { useAppSelector } from "./hooks/redux-hooks";
 import { useCheckAuth } from "./hooks/useCheckAuth";

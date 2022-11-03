@@ -1,11 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { startLogout } from "../../features/auth/thunks/thunks";
+import { useAppDispatch } from "../../hooks/redux-hooks";
 import "./Navbar.css";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const navigate = useNavigate();
+
+  const dispatch = useAppDispatch();
+
+  const onLogout = (): void => {
+    dispatch(startLogout());
+    navigate("/welcome")
+  }
 
   const handleClickHamburger = (): void => {
     setIsOpen(true);
@@ -29,7 +38,7 @@ export const Navbar = () => {
       <div className="navbar__container--menu">
         <span className="first__option" onClick={handleClickMyMovies}>My movies</span>
         <span className="second__option" onClick={handleClickExplore}>Explore</span>
-        <div className="logout" />
+        <div className="logout" onClick={onLogout}/>
         <div
           className={
             isOpen === true ? "hidden" : "hamburger"
@@ -50,7 +59,7 @@ export const Navbar = () => {
           }>
         <span className="first__option--mobile">My movies</span>
         <span className="second__option--mobile">Explore</span>
-        <button className="logOut__button">Log out</button>
+        <button className="logOut__button" onClick={onLogout}>Log out</button>
         </div>
   </>
     

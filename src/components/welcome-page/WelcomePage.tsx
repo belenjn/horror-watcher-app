@@ -7,7 +7,7 @@ export const WelcomePage = () => {
   const navigate = useNavigate();
 
   const handleClickToHomePage = ():void => {
-    navigate("/")
+    navigate("/auth/login")
   }
 
   return (
