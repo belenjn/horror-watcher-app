@@ -16,7 +16,7 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
   };
 
   return (
-    <div className="gridCardDetails__container">
+    <div className="gridCardDetails__container animate__animated animate__fadeIn animate__faster">
       {/* <div className="gridCardDetails__cross" onClick={handleClickToHome} /> */}
       <h1 className="gridCardDetails__title">{movie.title}</h1>
       <div className="gridCardDetails__container--movie">

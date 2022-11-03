@@ -32,8 +32,8 @@ export const Login = () => {
   const isAuthenticating = useMemo(() => status === "checking", [status]);
 
   return (
-    <div className="login__container animate__animated animate__fadeIn animate__faster">
-      <form className="login__container--data" onSubmit={onSubmit}>
+    <div className="login__container">
+      <form className="login__container--data animate__animated animate__fadeIn animate__faster" onSubmit={onSubmit}>
         <div className="logo__login" />
 
         <input
