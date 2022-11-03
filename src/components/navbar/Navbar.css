@@ -127,10 +127,14 @@
 
   .cross__menu {
     background-color: var(--main-bg-color);
+    border: 1px solid var(--primary-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-top: 120px;
     padding: 5px;
+    position: absolute;
+    width: 100%;
   }
 
   .first__option--mobile,

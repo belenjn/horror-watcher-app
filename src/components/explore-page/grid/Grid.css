@@ -40,13 +40,13 @@
   align-self: center;
   background-color: var(--main-bg-color);
   border-radius: var(--size-border-radius);
-  border: 2px solid white;
+  border: 1px solid white;
   color: white;
   margin-top: 80px;
   margin-bottom: 80px;
   padding: 20px;
-  width: 400px;
-  height: 60px;
+  width: 350px;
+  height: 50px;
 }
 
 .grid__input--image {
@@ -85,6 +85,7 @@
 }
 
 @media only screen and (max-width: 375px) {
+
   .grid__container--items {
     background-color: var(--main-bg-color);
     display: flex;
@@ -94,11 +95,12 @@
   }
 
   .grid__input--image {
-    height: 40px;
-    width: 40px;
+    height: 25px;
+    width: 25px;
   }
 
   .grid__input {
-    width: 200px;
+    width: 170px;
+    height: 30px;
   }
 }
