@@ -18,7 +18,6 @@
   color: white;
   font-family: var(--main-font-family);
   text-align: center;
-  padding: 10px;
   width: 50%;
 }
 
@@ -37,10 +36,15 @@
   color: #80abff;
 }
 
-
 @media only screen and (max-width: 375px) {
   .gridMoviesPage__container--pages {
     align-self: center;
+    margin-right: 10px;
     width: 50%;
+  }
+
+  .gridMoviesPage__container--pages--favorites,
+  .gridMoviesPage__container--pages--pending {
+    padding: 0;
   }
 }
