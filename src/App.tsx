@@ -28,7 +28,7 @@ function App() {
             <Route path="/auth/*" element={<AuthRoutes />} />
           )}
 
-          <Route path="*" element={<NotFound />} />
+          {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

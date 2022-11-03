@@ -12,18 +12,38 @@ enum Status {
 
 export interface StateOfMovies {
   movies: Movie[];
+  favoritesMovies: Movie[];
+  pendingMovies: Movie[];
   status: Status;
 }
 
 const initialState: StateOfMovies = {
   movies: [],
+  favoritesMovies: [],
+  pendingMovies: [],
   status: Status.empty,
 };
 
 export const moviesSlice = createSlice({
   name: "movies",
   initialState,
-  reducers: {},
+  reducers: {
+    addMoviesToFavorites: () => {
+
+    },
+    addMoviesToPending: () => {
+
+    },
+    deleteMovies: () => {
+
+    },
+    filterMoviesByOlderDate: () => {
+
+    },
+    filterMoviesByNewestDate: () => {
+
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchGetMovies.pending, (state): void => {
@@ -31,7 +51,6 @@ export const moviesSlice = createSlice({
       })
       .addCase(fetchGetMovies.fulfilled, (state, action): void => {
         state.movies = state.movies.concat(action.payload);
-
       })
       .addCase(fetchGetMovies.rejected, (state): void => {
         state.status = Status.failed;
