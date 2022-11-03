@@ -2,6 +2,7 @@
   background-color: var(--main-bg-color);
   display: flex;
   flex-direction: column;
+  margin-top: 100px;
 }
 
 .gridMoviesPage__container--pages {
@@ -41,8 +42,14 @@
   color: #80abff;
 }
 
-
 .gridMoviesPage__container--pages--favorites > a:visited,
 .gridMoviesPage__container--pages--pending > a:visited {
   color: #80abff;
+}
+
+@media only screen and (max-width: 375px) {
+  .gridMoviesPage__container--pages {
+    align-self: center;
+    width: 50%;
+  }
 }

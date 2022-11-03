@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./SelectorPages.css";
 
 export const SelectorPages = ({

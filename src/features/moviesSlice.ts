@@ -12,15 +12,11 @@ enum Status {
 
 export interface StateOfMovies {
   movies: Movie[];
-  favoritesMovies: Movie[];
-  pendingMovies: Movie[];
   status: Status;
 }
 
 const initialState: StateOfMovies = {
   movies: [],
-  favoritesMovies: [],
-  pendingMovies: [],
   status: Status.empty,
 };
 
@@ -28,15 +24,6 @@ export const moviesSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    addMoviesToFavorites: () => {
-
-    },
-    addMoviesToPending: () => {
-
-    },
-    deleteMovies: () => {
-
-    },
     filterMoviesByOlderDate: () => {
 
     },
