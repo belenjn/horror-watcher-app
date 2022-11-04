@@ -2,10 +2,16 @@ import { AnyAction, createAsyncThunk, ThunkDispatch } from "@reduxjs/toolkit";
 import { Dispatch } from "react";
 import { StateOfAuth } from "../../auth/authSlice";
 import { moviesAPI } from "../moviesAPI";
-import { setSaving, StateOfMovies } from "../moviesSlice";
+import {
+  addMovieToFavorites,
+  setFavoritesMovies,
+  StateOfMovies,
+} from "../moviesSlice";
 import { collection, doc, setDoc } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../../firebase/config";
 import { Movie } from "../../../types/movie";
+import { async } from "@firebase/util";
+import { loadMovies } from "../../../helpers/loadMovies";
 
 export const fetchGetMovies = createAsyncThunk(
   "fetch movies function",
@@ -14,7 +20,7 @@ export const fetchGetMovies = createAsyncThunk(
   }
 );
 
-export const startAddMovieToFavorites = () => {
+export const startAddMovieToFavorites = (movie: any) => {
   return async (
     dispatch: ThunkDispatch<
       {
@@ -27,23 +33,39 @@ export const startAddMovieToFavorites = () => {
       Dispatch<AnyAction>,
     getState: any
   ) => {
+    const { userId } = getState().auth;
 
-    const newMovie: Movie = {
-      id: 1,
-      title: "",
-      overview: "",
-      vote_average: 1,
-      poster_path: "",
-      release_date: "",
-      original_language: "",
-    };
+    const newDoc = doc(
+      collection(FirebaseDB, `${userId}/favorites-movies/movies/`)
+    );
 
-    const {userId} = getState().auth;
+    await setDoc(newDoc, movie);
 
-    const newDoc = doc(collection(FirebaseDB, `${userId}/favorites-movies/movies/`))
+    movie.id = newDoc.id;
 
-    const setDocResp = await setDoc(newDoc, newMovie)
-   
-    console.log({newDoc, setDocResp})
+    dispatch(addMovieToFavorites(movie));
+  };
+};
+
+export const startLoadingFavoritesMovies = () => {
+  return async (
+    dispatch: ThunkDispatch<
+      {
+        auth: StateOfAuth;
+        movies: StateOfMovies;
+      },
+      undefined,
+      AnyAction
+    > &
+      Dispatch<AnyAction>,
+    getState: any
+  ) => {
+    const { userId } = getState().auth;
+
+    if (!userId) throw new Error("The userId doesn't exist");
+
+    const movies = await loadMovies(userId);
+
+    dispatch(setFavoritesMovies(movies));
   };
 };

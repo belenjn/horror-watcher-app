@@ -2,7 +2,7 @@ import "./GridCardDetails.css";
 import { Movie } from "../../../../types/movie";
 import { useNavigate, useParams } from "react-router-dom";
 import { STRINGS } from "../../../../utils/strings";
-import { useAppDispatch } from "../../../../hooks/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/redux-hooks";
 import { startAddMovieToFavorites } from "../../../../features/movies/thunks/thunks";
 
 export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
@@ -21,7 +21,7 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
   };
 
   const onClickAddMovieFavorites = () => {
-    dispatch(startAddMovieToFavorites());
+    dispatch(startAddMovieToFavorites(movie));
   }
 
   return (

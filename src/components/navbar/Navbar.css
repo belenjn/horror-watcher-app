@@ -11,6 +11,7 @@
   padding: 10px;
   width: 100%;
   font-family: var(--main-font-family);
+  z-index: 10;
  
 }
 

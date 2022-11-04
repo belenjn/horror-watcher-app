@@ -1,7 +1,12 @@
+import { Movie } from "../../../types/movie";
+import { GridMyMoviesPage } from "../grid/GridMyMoviesPage";
 import "./Favorites.css"
 
-export const Favorites = () => {
-  const movies: [] = []
+
+export const Favorites = ({favoritesMovies}: {favoritesMovies: Movie[]}) => {
+
+  
+
   return (
     <div className='favorites__container animate__animated animate__fadeIn animate__faster'>
         <h1 className="favorites__container--title">
@@ -10,7 +15,7 @@ export const Favorites = () => {
 
         <div className="favorites__container--grid">
           {
-            movies.length === 0 ? <h1>No movies yet :(</h1> : <h1>Movies</h1>
+            favoritesMovies.length === 0 ? <h1>No movies yet :(</h1> : <GridMyMoviesPage favoritesMovies={favoritesMovies}/>
           }
         </div>
     </div>

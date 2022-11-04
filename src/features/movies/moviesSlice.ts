@@ -12,30 +12,36 @@ enum Status {
 
 export interface StateOfMovies {
   movies: Movie[];
+  favoritesMovies: Movie[];
   status: Status;
   active: null | {};
-  isSaving: boolean;
 }
 
 const initialState: StateOfMovies = {
   movies: [],
+  favoritesMovies: [],
   status: Status.empty,
   active: null, // active : {id: 123456, title: ''}
-  isSaving: true,
 };
 
 export const moviesSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    addMovieToFavorites: (state, action) => {},
-    addMovieToPending: (state, action) => {},
-    setSaving: (state) => {
-      state.isSaving = true;
+    addMovieToFavorites: (state, action) => {
+      state.favoritesMovies.push(action.payload);
+    },
+    addMovieToPending: (state, action) => {
+
+    },
+    setFavoritesMovies: (state, action) => {
+      state.favoritesMovies = action.payload;
     },
     deleteMovieById: (state, action) => {
       state.active = null;
-      state.movies = state.movies.filter( movie => movie.id !== action.payload );
+      state.movies = state.movies.filter(
+        (movie) => movie.id !== action.payload
+      );
     },
     filterMoviesByOlderDate: (state) => {},
     filterMoviesByNewestDate: (state) => {},
@@ -59,8 +65,8 @@ export const movies = (state: RootState) => state.movies.movies;
 export const {
   addMovieToFavorites,
   addMovieToPending,
-  setSaving,
   deleteMovieById,
+  setFavoritesMovies,
   filterMoviesByOlderDate,
   filterMoviesByNewestDate,
 } = moviesSlice.actions;
