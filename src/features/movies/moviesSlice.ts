@@ -30,8 +30,13 @@ export const moviesSlice = createSlice({
   reducers: {
     addMovieToFavorites: (state, action) => {},
     addMovieToPending: (state, action) => {},
-    setSaving: (state) => {},
-    deleteMovieById: (state, action) => {},
+    setSaving: (state) => {
+      state.isSaving = true;
+    },
+    deleteMovieById: (state, action) => {
+      state.active = null;
+      state.movies = state.movies.filter( movie => movie.id !== action.payload );
+    },
     filterMoviesByOlderDate: (state) => {},
     filterMoviesByNewestDate: (state) => {},
   },
