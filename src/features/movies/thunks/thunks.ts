@@ -4,10 +4,11 @@ import { StateOfAuth } from "../../auth/authSlice";
 import { moviesAPI } from "../moviesAPI";
 import {
   addMovieToFavorites,
+  deleteMovieById,
   setFavoritesMovies,
   StateOfMovies,
 } from "../moviesSlice";
-import { collection, doc, setDoc } from "firebase/firestore/lite";
+import { collection, deleteDoc, doc, setDoc } from "firebase/firestore/lite";
 import { FirebaseDB } from "../../../firebase/config";
 import { Movie } from "../../../types/movie";
 import { async } from "@firebase/util";
@@ -67,5 +68,34 @@ export const startLoadingFavoritesMovies = () => {
     const movies = await loadMovies(userId);
 
     dispatch(setFavoritesMovies(movies));
+  };
+};
+
+export const startDeletingMovie = () => {
+  return async (
+    dispatch: ThunkDispatch<
+      {
+        auth: StateOfAuth;
+        movies: StateOfMovies;
+      },
+      undefined,
+      AnyAction
+    > &
+      Dispatch<AnyAction>,
+    getState: any
+  ) => {
+    const { userId } = getState().auth;
+
+    const { active: movie } = getState().movies.favoritesMovies;
+
+    console.log({userId, movie})
+
+    const docRef = doc(
+      FirebaseDB,
+      `${userId}/favorites-movies/movies/${movie.id}`
+    );
+    await deleteDoc(docRef);
+
+    dispatch(deleteMovieById(movie.id));
   };
 };

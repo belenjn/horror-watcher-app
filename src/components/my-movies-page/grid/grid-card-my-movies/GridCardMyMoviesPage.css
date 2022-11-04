@@ -1,15 +1,54 @@
+.gridCardMyMoviesPage__container--poster {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-self: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--size-border-radius);
+  width: 250px;
+  height: 400px;
+}
 
+.gridCardMyMoviesPage__container--buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px;
+}
 
-.gridCardMyMoviesPage__container--poster{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-self: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    border-radius: var(--size-border-radius);
-    width: 250px;
-    height: 400px;
-  }
-  
+.info__button,
+.delete__button {
+  border-radius: 100px;
+  border: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.info__button:hover,
+.delete__button:hover {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.info__button:hover {
+  background-color: rgb(198, 147, 245);
+}
+
+.delete__button:hover {
+  background-color: rgb(249, 109, 109);
+}
+
+.delete__button {
+  background-color: rgb(206, 3, 3);
+}
+
+.info__button {
+  background-color: var(--primary-color);
+}

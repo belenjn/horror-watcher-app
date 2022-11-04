@@ -39,7 +39,7 @@ export const moviesSlice = createSlice({
     },
     deleteMovieById: (state, action) => {
       state.active = null;
-      state.movies = state.movies.filter(
+      state.favoritesMovies = state.favoritesMovies.filter(
         (movie) => movie.id !== action.payload
       );
     },
