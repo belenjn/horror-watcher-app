@@ -23,8 +23,12 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
 
   const onClickAddMovieFavorites = () => {
     dispatch(startAddMovieToFavorites(movie));
-    Swal.fire('Movie saved in Favorites', " ","success")
-  }
+    Swal.fire("Movie saved in Favorites", " ", "success").then((result) => {
+      if (result.isConfirmed) {
+        navigate("/");
+      }
+    });
+  };
 
   return (
     <div className="gridCardDetails__container animate__animated animate__fadeIn animate__faster">
@@ -58,11 +62,16 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
           </span>
 
           <div className="gridCardDetails__buttons">
-            <button className="pending">{STRINGS.gridCardDetailsPendingButton}</button>
-            <button className="favorites" onClick={onClickAddMovieFavorites}>{STRINGS.gridCardDetailsFavoriteButton}</button>
+            <button className="pending">
+              {STRINGS.gridCardDetailsPendingButton}
+            </button>
+            <button className="favorites" onClick={onClickAddMovieFavorites}>
+              {STRINGS.gridCardDetailsFavoriteButton}
+            </button>
           </div>
-          <button className="home" onClick={handleClickToHome}>{STRINGS.gridCardDetailsHomeButton}</button>
-
+          <button className="home" onClick={handleClickToHome}>
+            {STRINGS.gridCardDetailsHomeButton}
+          </button>
         </div>
       </div>
     </div>

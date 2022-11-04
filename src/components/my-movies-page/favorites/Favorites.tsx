@@ -6,7 +6,6 @@ import "./Favorites.css"
 export const Favorites = ({favoritesMovies}: {favoritesMovies: Movie[]}) => {
 
   
-
   return (
     <div className='favorites__container animate__animated animate__fadeIn animate__faster'>
         <h1 className="favorites__container--title">

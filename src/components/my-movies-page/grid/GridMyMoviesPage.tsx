@@ -1,5 +1,5 @@
 import { Movie } from "../../../types/movie";
-import { GridCard } from "../../explore-page/grid/grid-card/GridCard";
+import { GridCardMyMoviesPage } from "./grid-card-my-movies/GridCardMyMoviesPage";
 import "./GridMyMoviesPage.css"
 
 export const GridMyMoviesPage = ({favoritesMovies}: {favoritesMovies: Movie[]}) => {
@@ -7,7 +7,7 @@ export const GridMyMoviesPage = ({favoritesMovies}: {favoritesMovies: Movie[]}) 
         <div className="gridMyMoviesPage__container">
               {favoritesMovies.map(
                 (movie: Movie, id: number): JSX.Element => (
-                  <GridCard movie={movie} key={id} />
+                  <GridCardMyMoviesPage movie={movie} key={id} />
                 )
               )}
         </div>

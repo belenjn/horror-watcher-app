@@ -31,6 +31,7 @@ export const Navbar = () => {
 
   const handleClickMyMovies = (): void => {
     navigate("/myMovies");
+    location.reload();
   };
 
   return (

@@ -1,0 +1,15 @@
+
+
+.gridCardMyMoviesPage__container--poster{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--size-border-radius);
+    width: 250px;
+    height: 400px;
+  }
+  
