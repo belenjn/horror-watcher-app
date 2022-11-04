@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { STRINGS } from "../../../../utils/strings";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux-hooks";
 import { startAddMovieToFavorites } from "../../../../features/movies/thunks/thunks";
+import Swal from "sweetalert2";
 
 export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
   const { id } = useParams();
@@ -22,6 +23,7 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
 
   const onClickAddMovieFavorites = () => {
     dispatch(startAddMovieToFavorites(movie));
+    Swal.fire('Movie saved in Favorites', " ","success")
   }
 
   return (
