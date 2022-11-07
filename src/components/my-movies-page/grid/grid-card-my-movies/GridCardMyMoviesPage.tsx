@@ -6,11 +6,14 @@ import { useAppDispatch } from "../../../../hooks/redux-hooks";
 import { startDeletingMovie, startDeletingPendingMovie } from "../../../../features/movies/thunks/thunks";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const GridCardMyMoviesPage = ({ movie }: { movie: Movie }) => {
   const [infoVisible, setInfoVisible] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
+
+  const navigate = useNavigate();
 
   const onDeleteMovie = (): void => {
     Swal.fire({
@@ -23,7 +26,7 @@ export const GridCardMyMoviesPage = ({ movie }: { movie: Movie }) => {
       if (result.isConfirmed) {
         dispatch(startDeletingMovie(movie.id)), Swal.fire("Deleted!", "", "success");
         dispatch(startDeletingPendingMovie(movie.id)), Swal.fire("Deleted!", "", "success").then((result) => {
-          if(result.isConfirmed) location.reload();
+          navigate("/")
         });
       }
     });
