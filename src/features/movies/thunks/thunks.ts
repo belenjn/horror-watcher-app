@@ -5,7 +5,6 @@ import { moviesAPI } from "../moviesAPI";
 import {
   addMovieToFavorites,
   deleteMovieById,
-  setActiveMovie,
   setFavoritesMovies,
   StateOfMovies,
 } from "../moviesSlice";
@@ -48,12 +47,11 @@ export const startAddMovieToFavorites = (movie: Movie) => {
 
     await setDoc(newDoc, { ...movie, id: newDoc.id });
 
-    let movieId = movie.id.toString();
+    let movieId = movie.id;
 
-    movieId = newDoc.id;
+    movieId = parseInt(newDoc.id);
 
     dispatch(addMovieToFavorites(movie));
-    dispatch(setActiveMovie(movie));
   };
 };
 
@@ -80,7 +78,7 @@ export const startLoadingFavoritesMovies = () => {
   };
 };
 
-export const startDeletingMovie = () => {
+export const startDeletingMovie = (movieId: number) => {
   return async (
     dispatch: ThunkDispatch<
       {
@@ -95,18 +93,10 @@ export const startDeletingMovie = () => {
   ) => {
     const { userId } = getState().auth;
 
-    const { active: movie } = getState().movies;
-
-    let id;
-
-    movie.forEach((movieData: Movie) => {
-      id = movieData.id;
-    });
-
-    const docRef = doc(FirebaseDB, `${userId}/favorites-movies/movies/${id}`);
+    const docRef = doc(FirebaseDB, `${userId}/favorites-movies/movies/${movieId}`);
 
     await deleteDoc(docRef);
 
-    dispatch(deleteMovieById(id));
+    dispatch(deleteMovieById(movieId));
   };
 };

@@ -14,14 +14,12 @@ export interface StateOfMovies {
   movies: Movie[];
   favoritesMovies: Movie[];
   status: Status;
-  active: null | {};
 }
 
 const initialState: StateOfMovies = {
   movies: [],
   favoritesMovies: [],
   status: Status.empty,
-  active: null, // active : {id: 123456, title: ''}
 };
 
 export const moviesSlice = createSlice({
@@ -32,16 +30,11 @@ export const moviesSlice = createSlice({
       state.favoritesMovies.push(action.payload);
     },
     addMovieToPending: (state, action) => {},
-    setActiveMovie: (state, action) => {
-      state.active = action.payload;
-    },
     setFavoritesMovies: (state, action) => {
       state.favoritesMovies = action.payload;
-      state.active = action.payload;
 
     },
     deleteMovieById: (state, action) => {
-      state.active = null;
       state.favoritesMovies = state.favoritesMovies.filter(
         (movie) => movie.id !== action.payload
       );
@@ -70,8 +63,6 @@ export const {
   addMovieToPending,
   deleteMovieById,
   setFavoritesMovies,
-  setActiveMovie,
-  filterMoviesByOlderDate,
   filterMoviesByNewestDate,
 } = moviesSlice.actions;
 

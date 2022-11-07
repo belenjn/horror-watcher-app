@@ -21,7 +21,7 @@ export const GridCardMyMoviesPage = ({ movie }: { movie: Movie }) => {
       denyButtonText: `No`,
     }).then((result) => {
       if (result.isConfirmed) {
-        dispatch(startDeletingMovie()), Swal.fire("Deleted!", "", "success");
+        dispatch(startDeletingMovie(movie.id)), Swal.fire("Deleted!", "", "success")
       }
     });
   };

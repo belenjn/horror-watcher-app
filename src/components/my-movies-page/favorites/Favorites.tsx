@@ -14,7 +14,9 @@ export const Favorites = ({favoritesMovies}: {favoritesMovies: Movie[]}) => {
 
         <div className="favorites__container--grid">
           {
-            favoritesMovies.length === 0 ? <h1>No movies yet :(</h1> : <GridMyMoviesPage favoritesMovies={favoritesMovies}/>
+            favoritesMovies.length === 0 ? <h1 style={{
+              height: 500
+            }}>No movies yet :(</h1> : <GridMyMoviesPage favoritesMovies={favoritesMovies}/>
           }
         </div>
     </div>
