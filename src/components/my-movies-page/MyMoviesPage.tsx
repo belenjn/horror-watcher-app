@@ -11,13 +11,14 @@ export const MyMoviesPage = () => {
   const [pending, setPending] = useState(false);
 
   const favoritesMovies = useAppSelector(state => state.movies.favoritesMovies);
+  const pendingMovies = useAppSelector(state => state.movies.pendingMovies);
   
 
   return (
     <>
       <Navbar />
       <SelectorPages favorites={favorites} pending={pending} setFavorites={setFavorites} setPending={setPending} />
-      {favorites === true ? <Favorites favoritesMovies={favoritesMovies}/> : <Pending />}
+      {favorites === true ? <Favorites favoritesMovies={favoritesMovies}/> : <Pending pendingMovies={pendingMovies}/>}
 
       <Footer />
     </>

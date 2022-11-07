@@ -16,7 +16,7 @@ export const Favorites = ({favoritesMovies}: {favoritesMovies: Movie[]}) => {
           {
             favoritesMovies.length === 0 ? <h1 style={{
               height: 500
-            }}>No movies yet :(</h1> : <GridMyMoviesPage favoritesMovies={favoritesMovies}/>
+            }}>No movies yet :(</h1> : <GridMyMoviesPage movies={favoritesMovies}/>
           }
         </div>
     </div>

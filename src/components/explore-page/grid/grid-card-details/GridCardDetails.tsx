@@ -3,7 +3,7 @@ import { Movie } from "../../../../types/movie";
 import { useNavigate, useParams } from "react-router-dom";
 import { STRINGS } from "../../../../utils/strings";
 import { useAppDispatch } from "../../../../hooks/redux-hooks";
-import { startAddMovieToFavorites } from "../../../../features/movies/thunks/thunks";
+import { startAddMovieToFavorites, startAddMovieToPending } from "../../../../features/movies/thunks/thunks";
 import Swal from "sweetalert2";
 
 export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
@@ -29,6 +29,17 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
       }
     });
   };
+
+
+  const onClickAddMoviePending = () => {
+    dispatch(startAddMovieToPending(movie));
+    Swal.fire("Movie saved in Pending", " ", "success").then((result) => {
+      if (result.isConfirmed) {
+        navigate("/");
+      }
+    });
+  };
+
 
   return (
     <div className="gridCardDetails__container animate__animated animate__fadeIn animate__faster">
@@ -62,7 +73,7 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
           </span>
 
           <div className="gridCardDetails__buttons">
-            <button className="pending">
+            <button className="pending" onClick={onClickAddMoviePending}>
               {STRINGS.gridCardDetailsPendingButton}
             </button>
             <button className="favorites" onClick={onClickAddMovieFavorites}>

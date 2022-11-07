@@ -3,7 +3,7 @@ import { AiOutlineClose, AiOutlineDelete, AiOutlineInfoCircle } from "react-icon
 
 import "./GridCardMyMoviesPage.css";
 import { useAppDispatch } from "../../../../hooks/redux-hooks";
-import { startDeletingMovie } from "../../../../features/movies/thunks/thunks";
+import { startDeletingMovie, startDeletingPendingMovie } from "../../../../features/movies/thunks/thunks";
 import Swal from "sweetalert2";
 import { useState } from "react";
 
@@ -21,7 +21,10 @@ export const GridCardMyMoviesPage = ({ movie }: { movie: Movie }) => {
       denyButtonText: `No`,
     }).then((result) => {
       if (result.isConfirmed) {
-        dispatch(startDeletingMovie(movie.id)), Swal.fire("Deleted!", "", "success")
+        dispatch(startDeletingMovie(movie.id)), Swal.fire("Deleted!", "", "success");
+        dispatch(startDeletingPendingMovie(movie.id)), Swal.fire("Deleted!", "", "success").then((result) => {
+          if(result.isConfirmed) location.reload();
+        });
       }
     });
   };
