@@ -31,11 +31,14 @@ export const moviesSlice = createSlice({
     addMovieToFavorites: (state, action) => {
       state.favoritesMovies.push(action.payload);
     },
-    addMovieToPending: (state, action) => {
-
+    addMovieToPending: (state, action) => {},
+    setActiveMovie: (state, action) => {
+      state.active = action.payload;
     },
     setFavoritesMovies: (state, action) => {
       state.favoritesMovies = action.payload;
+      state.active = action.payload;
+
     },
     deleteMovieById: (state, action) => {
       state.active = null;
@@ -67,6 +70,7 @@ export const {
   addMovieToPending,
   deleteMovieById,
   setFavoritesMovies,
+  setActiveMovie,
   filterMoviesByOlderDate,
   filterMoviesByNewestDate,
 } = moviesSlice.actions;
