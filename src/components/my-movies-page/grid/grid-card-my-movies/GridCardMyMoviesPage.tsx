@@ -21,11 +21,7 @@ export const GridCardMyMoviesPage = ({ movie }: { movie: Movie }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(startDeletingMovie()), 
-        Swal.fire("Deleted!", "", "success").then((result) => {
-          if (result.isConfirmed) {
-            location.reload();
-          }
-        });
+        Swal.fire("Deleted!", "", "success")
       }
     });
   };

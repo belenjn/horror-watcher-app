@@ -9,11 +9,16 @@ import {
   setFavoritesMovies,
   StateOfMovies,
 } from "../moviesSlice";
-import { collection, deleteDoc, doc, getDocs, setDoc } from "firebase/firestore/lite";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  setDoc,
+} from "firebase/firestore/lite";
 import { FirebaseDB } from "../../../firebase/config";
 import { loadMovies } from "../../../helpers/loadMovies";
 import { Movie } from "../../../types/movie";
-
 
 export const fetchGetMovies = createAsyncThunk(
   "fetch movies function",
@@ -41,7 +46,7 @@ export const startAddMovieToFavorites = (movie: Movie) => {
       collection(FirebaseDB, `${userId}/favorites-movies/movies/`)
     );
 
-    await setDoc(newDoc, {...movie, id: newDoc.id});
+    await setDoc(newDoc, { ...movie, id: newDoc.id });
 
     let movieId = movie.id.toString();
 
@@ -88,25 +93,20 @@ export const startDeletingMovie = () => {
       Dispatch<AnyAction>,
     getState: any
   ) => {
-
-
     const { userId } = getState().auth;
 
-    const {active: movie} = getState().movies;
+    const { active: movie } = getState().movies;
 
-    console.log(movie.forEach((movieData:Movie) => {
-      console.log(movieData.id)
-    }))
+    let id;
 
-    const docRef = doc(
-      FirebaseDB,
-      `${userId}/favorites-movies/movies/${movie.id}`
-    );
+    movie.forEach((movieData: Movie) => {
+      id = movieData.id;
+    });
+
+    const docRef = doc(FirebaseDB, `${userId}/favorites-movies/movies/${id}`);
 
     await deleteDoc(docRef);
 
-    dispatch(deleteMovieById(movie.id));
-    
-    
+    dispatch(deleteMovieById(id));
   };
 };
