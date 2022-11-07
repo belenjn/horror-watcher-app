@@ -3,7 +3,9 @@ import { Movie } from "../../../../types/movie";
 import { STRINGS } from "../../../../utils/strings";
 import "./GridCard.css";
 
-export const GridCard = ({ movie }: { movie: Movie }) => {
+export const GridCard = ({ movie }: { movie: Movie}) => {
+
+
   return (
     <>
       <div

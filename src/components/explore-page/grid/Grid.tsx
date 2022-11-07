@@ -15,6 +15,7 @@ export const Grid = ({ movies }: { movies: Movie[] }) => {
 
   const dispatch = useAppDispatch();
 
+
   const override: CSSProperties = {
     display: "block",
     margin: "0 auto",
@@ -46,6 +47,7 @@ export const Grid = ({ movies }: { movies: Movie[] }) => {
   }
 
   const moviesFiltered = filterMovie();
+
 
   useEffect(() => {
     dispatch(fetchGetMovies(page));
