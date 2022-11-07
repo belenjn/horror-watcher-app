@@ -1,17 +1,18 @@
 import { Movie } from "../../../../types/movie";
-import { AiOutlineDelete, AiOutlineInfoCircle } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineDelete, AiOutlineInfoCircle } from "react-icons/ai";
 
 import "./GridCardMyMoviesPage.css";
 import { useAppDispatch } from "../../../../hooks/redux-hooks";
 import { startDeletingMovie } from "../../../../features/movies/thunks/thunks";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export const GridCardMyMoviesPage = ({ movie }: { movie: Movie }) => {
+  const [infoVisible, setInfoVisible] = useState<boolean>(false);
+
   const dispatch = useAppDispatch();
 
-
-  const onDeleteMovie = () => {
+  const onDeleteMovie = (): void => {
     Swal.fire({
       icon: "question",
       title: "Do you want to delete this movie?",
@@ -20,11 +21,15 @@ export const GridCardMyMoviesPage = ({ movie }: { movie: Movie }) => {
       denyButtonText: `No`,
     }).then((result) => {
       if (result.isConfirmed) {
-        dispatch(startDeletingMovie()), 
-        Swal.fire("Deleted!", "", "success")
+        dispatch(startDeletingMovie()), Swal.fire("Deleted!", "", "success");
       }
     });
   };
+
+  const onInfoVisible = (): void => {
+    setInfoVisible(!infoVisible);
+  };
+
   return (
     <>
       <div
@@ -33,9 +38,26 @@ export const GridCardMyMoviesPage = ({ movie }: { movie: Movie }) => {
           backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.poster_path})`,
         }}
       >
+        <div
+          className={
+            infoVisible === true
+              ? "gridCardMyMoviesPage__container--info"
+              : "hidden"
+          }
+        >
+          <span>
+            <b>Overview: </b>
+            {movie.overview}
+          </span>
+        </div>
         <div className="gridCardMyMoviesPage__container--buttons">
-          <AiOutlineInfoCircle className="info__button" />
-          <AiOutlineDelete className="delete__button" onClick={onDeleteMovie}/>
+         
+          <AiOutlineInfoCircle
+            className={infoVisible === false ? "info__button" : "hidden"}
+            onClick={onInfoVisible}
+          />
+          <AiOutlineClose className={infoVisible === true ? "delete__button" : "hidden"}  onClick={onInfoVisible}/>
+          <AiOutlineDelete className="delete__button" onClick={onDeleteMovie} />
         </div>
       </div>
     </>

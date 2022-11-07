@@ -67,12 +67,14 @@
 .grid__container--items {
   background-color: var(--main-bg-color);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-content: center;
   justify-items: center;
   margin-bottom: 80px;
   gap: 20px;
 }
+
+
 
 .infinite-scroll-component__outerdiv, .infinite-scroll-component  {
   overflow: hidden !important;
@@ -92,7 +94,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-  }
+  } 
 
   .grid__input--image {
     height: 25px;
