@@ -17,8 +17,5 @@ export const STRINGS = {
   gridCardDetailsFavoriteButton: "Add to favorites",
   gridCardDetailsHomeButton: "Back to home",
   footerName: "Belén JN",
-  footerRights: "© 2022 All Rights reserved",
-  notFoundNumber: "404",
-  notFoundText: "We couldn’t find this page",
-  notFoundButton: "Exit",
+  footerRights: "© 2022 All Rights reserved"
 };
