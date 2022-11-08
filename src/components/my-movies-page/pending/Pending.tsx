@@ -3,6 +3,8 @@ import { GridMyMoviesPage } from "../grid/GridMyMoviesPage";
 import "./Pending.css";
 
 export const Pending = ({ pendingMovies }: { pendingMovies: Movie[] }) => {
+
+
   return (
     <div className="pending__container animate__animated animate__fadeIn animate__faster">
       <h1 className="pending__container--title">Pending</h1>

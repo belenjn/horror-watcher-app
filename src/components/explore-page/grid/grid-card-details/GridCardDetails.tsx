@@ -2,7 +2,7 @@ import "./GridCardDetails.css";
 import { Movie } from "../../../../types/movie";
 import { useNavigate, useParams } from "react-router-dom";
 import { STRINGS } from "../../../../utils/strings";
-import { useAppDispatch } from "../../../../hooks/redux-hooks";
+import { useAppDispatch, useAppSelector } from "../../../../hooks/redux-hooks";
 import { startAddMovieToFavorites, startAddMovieToPending } from "../../../../features/movies/thunks/thunks";
 import Swal from "sweetalert2";
 

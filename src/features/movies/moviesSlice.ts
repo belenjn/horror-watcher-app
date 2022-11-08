@@ -30,10 +30,10 @@ export const moviesSlice = createSlice({
   reducers: {
     addMovieToFavorites: (state, action) => {
       state.favoritesMovies.push(action.payload);
+
     },
     addMovieToPending: (state, action) => {
       state.pendingMovies.push(action.payload);
-
     },
     setFavoritesMovies: (state, action) => {
       state.favoritesMovies = action.payload;

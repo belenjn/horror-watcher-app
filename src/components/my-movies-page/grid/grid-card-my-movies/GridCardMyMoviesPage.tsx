@@ -25,9 +25,7 @@ export const GridCardMyMoviesPage = ({ movie }: { movie: Movie }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(startDeletingMovie(movie.id)), Swal.fire("Deleted!", "", "success");
-        dispatch(startDeletingPendingMovie(movie.id)), Swal.fire("Deleted!", "", "success").then((result) => {
-          navigate("/")
-        });
+        dispatch(startDeletingPendingMovie(movie.id)), Swal.fire("Deleted!", "", "success")
       }
     });
   };
