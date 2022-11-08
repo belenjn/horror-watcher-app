@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CheckAuth } from "./components/check-auth/CheckAuth";
-import { WelcomePage } from "./components/welcome-page/WelcomePage";
 import { useAppSelector } from "./hooks/redux-hooks";
 import { useCheckAuth } from "./hooks/useCheckAuth";
 import { AuthRoutes } from "./routes/auth/AuthRoutes";
@@ -20,7 +19,6 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/welcome" element={<WelcomePage />} />
           
           {status === "authenticated" ? (
             <Route path="/*" element={<MoviesRoutes movies={moviesLists} />} />
