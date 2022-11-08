@@ -3,7 +3,10 @@ import { Movie } from "../../../../types/movie";
 import { useNavigate, useParams } from "react-router-dom";
 import { STRINGS } from "../../../../utils/strings";
 import { useAppDispatch, useAppSelector } from "../../../../hooks/redux-hooks";
-import { startAddMovieToFavorites, startAddMovieToPending } from "../../../../features/movies/thunks/thunks";
+import {
+  startAddMovieToFavorites,
+  startAddMovieToPending,
+} from "../../../../features/movies/thunks/thunks";
 import Swal from "sweetalert2";
 
 export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
@@ -15,6 +18,10 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
 
   const movie = movies.find((movie: Movie) => movie.id.toString() === id);
 
+  const favMovies = useAppSelector((state) => state.movies.favoritesMovies);
+
+  const pendMovies = useAppSelector((state) => state.movies.pendingMovies);
+
   if (!movie) return null;
 
   const handleClickToHome = () => {
@@ -22,24 +29,38 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
   };
 
   const onClickAddMovieFavorites = () => {
-    dispatch(startAddMovieToFavorites(movie));
-    Swal.fire("Movie saved in Favorites", " ", "success").then((result) => {
-      if (result.isConfirmed) {
-        navigate("/");
-      }
-    });
+    !favMovies.includes(movie)
+      ? Swal.fire("This movie is already saved", " ", "info").then((result) => {
+          if (result.isConfirmed) {
+            navigate("/");
+          }
+        })
+      : (Swal.fire("Movie saved in Favorites", " ", "success").then(
+          (result) => {
+            if (result.isConfirmed) {
+              navigate("/");
+            }
+          }
+        ),
+        dispatch(startAddMovieToFavorites(movie)));
   };
-
 
   const onClickAddMoviePending = () => {
-    dispatch(startAddMovieToPending(movie));
-    Swal.fire("Movie saved in Pending", " ", "success").then((result) => {
-      if (result.isConfirmed) {
-        navigate("/");
-      }
-    });
+    !pendMovies.includes(movie)
+      ? Swal.fire("This movie is already saved", " ", "info").then((result) => {
+          if (result.isConfirmed) {
+            navigate("/");
+          }
+        })
+      : (Swal.fire("Movie saved in Pending", " ", "success").then(
+          (result) => {
+            if (result.isConfirmed) {
+              navigate("/");
+            }
+          }
+        ),
+        dispatch(startAddMovieToPending(movie)));
   };
-
 
   return (
     <div className="gridCardDetails__container animate__animated animate__fadeIn animate__faster">
