@@ -1,5 +1,5 @@
 import {
-  BrowserRouter,
+  HashRouter,
   Navigate,
   Route,
   Routes,
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
     
          
@@ -34,7 +34,7 @@ function App() {
 
           <Route path="/*" element={<Navigate to="/auth/login" />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
