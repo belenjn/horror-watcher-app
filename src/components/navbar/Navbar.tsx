@@ -13,8 +13,7 @@ export const Navbar = () => {
   const dispatch = useAppDispatch();
 
   const onLogout = (): void => {
-    dispatch(startLogout());
-    navigate("/welcome");
+    dispatch(startLogout());  
   };
 
   const handleClickHamburger = (): void => {

@@ -1,5 +1,12 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter,
+  Navigate,
+  Route,
+  Routes,
+  useNavigate,
+} from "react-router-dom";
 import { CheckAuth } from "./components/check-auth/CheckAuth";
+import { Login } from "./components/login/Login";
 import { useAppSelector } from "./hooks/redux-hooks";
 import { useCheckAuth } from "./hooks/useCheckAuth";
 import { AuthRoutes } from "./routes/auth/AuthRoutes";
@@ -19,14 +26,14 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          
-          {status === "authenticated" ? (
+         
+        {status === "authenticated" ? (
             <Route path="/*" element={<MoviesRoutes movies={moviesLists} />} />
           ) : (
             <Route path="/auth/*" element={<AuthRoutes />} />
           )}
 
-          <Route path="*" element={<CheckAuth />} /> 
+          <Route path="*" element={<CheckAuth />} />
         </Routes>
       </BrowserRouter>
     </div>

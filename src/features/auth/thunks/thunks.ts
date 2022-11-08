@@ -105,8 +105,6 @@ export const startLoginWithEmailPassword = ({
 
     const result = await loginWithEmailPassword({ email, password });
 
-    console.log(result);
-
     if (!result.ok) return dispatch(logout(result));
 
     dispatch(login(result));
@@ -128,5 +126,6 @@ export const startLogout = () => {
     await logoutFirebase();
 
     dispatch(logout({}))
+    window.location.replace("/auth/login")
   };
 };
