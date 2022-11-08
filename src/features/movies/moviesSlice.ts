@@ -44,6 +44,10 @@ export const moviesSlice = createSlice({
       state.favoritesMovies = state.favoritesMovies.filter(
         (movie) => movie.id !== action.payload
       );
+
+      state.pendingMovies = state.pendingMovies.filter(
+        (movie) => movie.id !== action.payload
+      );
     },
     filterFavoritesMoviesByOlderDate: (state) => {
       state.favoritesMovies.sort((a, b) => {
