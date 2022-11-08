@@ -17,7 +17,7 @@ function App() {
   const { status } = useCheckAuth();
 
   if (status === "checking") {
-    <CheckAuth />;
+    return <CheckAuth />;
   }
 
   return (
@@ -32,7 +32,7 @@ function App() {
             <Route path="/auth/*" element={<AuthRoutes />} />
           )}
 
-          <Route path="*" element={<Navigate to="/auth/login" />} />
+          <Route path="/*" element={<Navigate to="/auth/login" />} />
         </Routes>
       </BrowserRouter>
     </div>
