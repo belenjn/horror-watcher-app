@@ -3,7 +3,6 @@ import { useAppSelector } from "../../hooks/redux-hooks";
 import { Footer } from "../footer/Footer";
 import { Navbar } from "../navbar/Navbar";
 import { Favorites } from "./favorites/Favorites";
-import { Filter } from "./filter/Filter";
 import { Pending } from "./pending/Pending";
 import { SelectorPages } from "./selector-pages-favorites-pending/SelectorPages";
 
@@ -25,7 +24,6 @@ export const MyMoviesPage = () => {
         setFavorites={setFavorites}
         setPending={setPending}
       />
-      <Filter />
       {favorites === true ? (
         <Favorites favoritesMovies={favoritesMovies} />
       ) : (
