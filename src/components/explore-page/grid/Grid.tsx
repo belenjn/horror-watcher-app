@@ -67,7 +67,7 @@ export const Grid = ({ movies }: { movies: Movie[] }) => {
           value={search}
         />
       </div>
-
+    
       <InfiniteScroll
         dataLength={movies.length}
         next={() => setPage((prevPage) => prevPage + 1)}

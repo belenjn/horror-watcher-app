@@ -1,5 +1,5 @@
 import { Movie } from "../../../types/movie";
-import { Filter } from "../filter/Filter";
+import { FilterFavorites } from "../filter/favorites/FilterFavorites";
 import { GridMyMoviesPage } from "../grid/GridMyMoviesPage";
 import "./Favorites.css";
 
@@ -11,7 +11,7 @@ export const Favorites = ({
   return (
     <div className="favorites__container animate__animated animate__fadeIn animate__faster">
       <h1 className="favorites__container--title">Favorites</h1>
-      <Filter />
+      <FilterFavorites />
 
       <div className="favorites__container--grid">
         {favoritesMovies.length === 0 ? (

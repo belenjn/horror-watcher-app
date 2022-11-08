@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { ExplorePage } from "../../components/explore-page/ExplorePage";
+import { ExplorePage } from "../../views/ExplorePage";
 import { GridCardDetails } from "../../components/explore-page/grid/grid-card-details/GridCardDetails";
-import { MyMoviesPage } from "../../components/my-movies-page/MyMoviesPage";
+import { MyMoviesPage } from "../../views/MyMoviesPage";
 import { Movie } from "../../types/movie";
 
 export const MoviesRoutes = ({ movies }: { movies: Movie[] }) => {

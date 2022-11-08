@@ -1,7 +1,7 @@
-import { Movie } from "../../types/movie"
-import { Footer } from "../footer/Footer"
-import { Grid } from "./grid/Grid"
-import { Navbar } from "../navbar/Navbar"
+import { Movie } from "../types/movie"
+import { Footer } from "../components/footer/Footer"
+import { Grid } from "../components/explore-page/grid/Grid"
+import { Navbar } from "../components/navbar/Navbar"
 
 export const ExplorePage = ({movies} : {movies: Movie[]}) => {
   return (

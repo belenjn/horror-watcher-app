@@ -30,7 +30,6 @@ export const moviesSlice = createSlice({
   reducers: {
     addMovieToFavorites: (state, action) => {
       state.favoritesMovies.push(action.payload);
-
     },
     addMovieToPending: (state, action) => {
       state.pendingMovies.push(action.payload);
@@ -46,8 +45,50 @@ export const moviesSlice = createSlice({
         (movie) => movie.id !== action.payload
       );
     },
-    filterMoviesByOlderDate: (state) => {},
-    filterMoviesByNewestDate: (state) => {},
+    filterFavoritesMoviesByOlderDate: (state) => {
+      state.favoritesMovies.sort((a, b) => {
+        if (a.release_date < b.release_date) {
+          return -1;
+        }
+        if (a.release_date > b.release_date) {
+          return 1;
+        }
+        return 0;
+      });
+    },
+    filterFavoritesMoviesByNewestDate: (state) => {
+      state.favoritesMovies.sort((a, b) => {
+        if (a.release_date > b.release_date) {
+          return -1;
+        }
+        if (a.release_date < b.release_date) {
+          return 1;
+        }
+        return 0;
+      });
+    },
+    filterPendingMoviesByOlderDate: (state) => {
+      state.pendingMovies.sort((a, b) => {
+        if (a.release_date < b.release_date) {
+          return -1;
+        }
+        if (a.release_date > b.release_date) {
+          return 1;
+        }
+        return 0;
+      });
+    },
+    filterPendingMoviesByNewestDate: (state) => {
+      state.pendingMovies.sort((a, b) => {
+        if (a.release_date > b.release_date) {
+          return -1;
+        }
+        if (a.release_date < b.release_date) {
+          return 1;
+        }
+        return 0;
+      });
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -71,7 +112,10 @@ export const {
   deleteMovieById,
   setFavoritesMovies,
   setPendingMovies,
-  filterMoviesByNewestDate,
+  filterFavoritesMoviesByNewestDate,
+  filterFavoritesMoviesByOlderDate,
+  filterPendingMoviesByNewestDate,
+  filterPendingMoviesByOlderDate,
 } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

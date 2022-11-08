@@ -5,7 +5,7 @@ import {
   Routes,
   useNavigate,
 } from "react-router-dom";
-import { CheckAuth } from "./components/check-auth/CheckAuth";
+import { CheckAuth } from "./views/check-auth/CheckAuth";
 import { Login } from "./components/login/Login";
 import { useAppSelector } from "./hooks/redux-hooks";
 import { useCheckAuth } from "./hooks/useCheckAuth";

@@ -1,5 +1,5 @@
 import { Movie } from "../../../types/movie";
-import { Filter } from "../filter/Filter";
+import { FilterPending } from "../filter/pending/FilterPending";
 import { GridMyMoviesPage } from "../grid/GridMyMoviesPage";
 import "./Pending.css";
 
@@ -7,8 +7,7 @@ export const Pending = ({ pendingMovies }: { pendingMovies: Movie[] }) => {
   return (
     <div className="pending__container animate__animated animate__fadeIn animate__faster">
       <h1 className="pending__container--title">Pending</h1>
-      <Filter />
-
+      <FilterPending />
       <div className="pending__container--grid">
         {pendingMovies.length === 0 ? (
           <h1
