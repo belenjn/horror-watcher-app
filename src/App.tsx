@@ -24,6 +24,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+    
          
         {status === "authenticated" ? (
             <Route path="/*" element={<MoviesRoutes movies={moviesLists} />} />
@@ -31,7 +32,7 @@ function App() {
             <Route path="/auth/*" element={<AuthRoutes />} />
           )}
 
-          <Route path="*" element={<CheckAuth />} />
+          <Route path="*" element={<Navigate to="/auth/login" />} />
         </Routes>
       </BrowserRouter>
     </div>
