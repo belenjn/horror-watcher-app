@@ -21,3 +21,13 @@ And then:
 <li>Redux-toolkit</li>
 <li>CSS</li>
 <li>Firebase</li>
+
+`Mobile view`
+<p align="center"> <img src=""/></p>
+
+
+
+`Desktop view`
+<p align="center"> <img src=""/></p>
+
+<p align="center"> <img src=""/></p>
