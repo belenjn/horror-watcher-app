@@ -42,6 +42,7 @@
 .second__option {
   padding: 5px;
   margin-right: 35px;
+  cursor: pointer;
 }
 
 .first__option:hover,
@@ -49,8 +50,6 @@
   color: rgb(153, 227, 43);
   cursor: pointer;
 }
-
-/* TODO: revisar el active */
 
 .first__option:active {
   color: rgb(153, 227, 43);
@@ -136,6 +135,7 @@
     padding: 5px;
     position: absolute;
     width: 100%;
+    z-index: 6;
   }
 
   .first__option--mobile,

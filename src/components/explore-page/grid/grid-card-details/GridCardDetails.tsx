@@ -28,38 +28,50 @@ export const GridCardDetails = ({ movies }: { movies: Movie[] }) => {
     navigate("/");
   };
 
+  let favTitles: any = [];
+
   const onClickAddMovieFavorites = () => {
-    !favMovies.includes(movie)
-      ? Swal.fire("This movie is already saved", " ", "info").then((result) => {
-          if (result.isConfirmed) {
-            navigate("/");
-          }
-        })
-      : (Swal.fire("Movie saved in Favorites", " ", "success").then(
-          (result) => {
-            if (result.isConfirmed) {
-              navigate("/");
-            }
-          }
-        ),
-        dispatch(startAddMovieToFavorites(movie)));
+    favMovies.filter((favMovie) => {
+      favTitles.push(favMovie.title);
+    });
+
+    if (favTitles.includes(movie.title)) {
+      Swal.fire("This movie is already saved", " ", "info").then((result) => {
+        if (result.isConfirmed) {
+          navigate("/");
+        }
+      });
+    } else {
+      Swal.fire("Movie saved in Favorites", " ", "success").then((result) => {
+        if (result.isConfirmed) {
+          navigate("/");
+        }
+      }),
+        dispatch(startAddMovieToFavorites(movie));
+    }
   };
 
+  let pendingTitles: any = [];
+
   const onClickAddMoviePending = () => {
-    !pendMovies.includes(movie)
-      ? Swal.fire("This movie is already saved", " ", "info").then((result) => {
-          if (result.isConfirmed) {
-            navigate("/");
-          }
-        })
-      : (Swal.fire("Movie saved in Pending", " ", "success").then(
-          (result) => {
-            if (result.isConfirmed) {
-              navigate("/");
-            }
-          }
-        ),
-        dispatch(startAddMovieToPending(movie)));
+    pendMovies.filter((pendingMovie) => {
+      pendingTitles.push(pendingMovie.title);
+    });
+
+    if (pendingTitles.includes(movie.title)) {
+      Swal.fire("This movie is already saved", " ", "info").then((result) => {
+        if (result.isConfirmed) {
+          navigate("/");
+        }
+      });
+    } else {
+      Swal.fire("Movie saved in Pending", " ", "success").then((result) => {
+        if (result.isConfirmed) {
+          navigate("/");
+        }
+      }),
+        dispatch(startAddMovieToPending(movie));
+    }
   };
 
   return (

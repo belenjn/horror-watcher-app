@@ -176,10 +176,5 @@ export const startDeletingPendingMovie = (movieId: number) => {
     await deleteDoc(docRef);
 
     dispatch(deleteMovieById(movieId));
-
-    setTimeout(() => {
-    location.reload();
-
-    }, 1000);
   };
 };

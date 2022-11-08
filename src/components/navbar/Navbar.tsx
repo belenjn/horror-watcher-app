@@ -56,8 +56,8 @@ export const Navbar = () => {
         </div>
       </div>
       <div className={isOpen === true ? "cross__menu" : "hidden"}>
-        <span className="first__option--mobile">{STRINGS.navbarMovies}</span>
-        <span className="second__option--mobile">{STRINGS.navbarExplore}</span>
+        <span className="first__option--mobile" onClick={handleClickMyMovies}>{STRINGS.navbarMovies}</span>
+        <span className="second__option--mobile" onClick={handleClickExplore}>{STRINGS.navbarExplore}</span>
         <button className="logOut__button" onClick={onLogout}>
           {STRINGS.navbarLogout}
         </button>
