@@ -126,6 +126,5 @@ export const startLogout = () => {
     await logoutFirebase();
 
     dispatch(logout({}))
-    window.location.replace("/auth/login")
   };
 };

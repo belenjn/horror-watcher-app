@@ -47,6 +47,15 @@ export const Grid = ({ movies }: { movies: Movie[] }) => {
   }
 
   const moviesFiltered = filterMovie();
+  
+
+  let scroll = document.documentElement.scrollTop; // medida de distancia desde el límite superior
+
+  let height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight; // altura pantalla
+
+  let progress = (scroll / height) * 100; // operación para el porcentaje de la altura
 
 
   useEffect(() => {
@@ -55,7 +64,7 @@ export const Grid = ({ movies }: { movies: Movie[] }) => {
 
   return (
     <div className="grid__container">
-      <button className="top__button" onClick={handleClickToTop}>
+      <button className={progress   ? "top__button" : "hidden"} onClick={handleClickToTop}>
         ⌃
       </button>
       <div className="grid__container--input">

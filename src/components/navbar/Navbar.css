@@ -26,6 +26,10 @@
   height: 100px;
 }
 
+.logo__navbar:hover {
+  cursor: pointer;
+}
+
 .navbar__container--menu {
   align-self: center;
   display: flex;

@@ -13,6 +13,9 @@
   height: 400px;
 }
 
+.gridCard__container--poster:hover {
+  cursor: pointer;
+}
 
 .more-info {
   display: flex;
