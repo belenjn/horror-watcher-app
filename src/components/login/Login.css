@@ -107,7 +107,7 @@ span > a:hover {
 
 @media only screen and (max-width: 375px) {
   .login__container--data {
-    width: 350px;
+    width: 90%;
   }
   .login__container--data--buttons {
     flex-direction: column;
