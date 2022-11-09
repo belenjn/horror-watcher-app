@@ -4,6 +4,7 @@ import {
   filterPendingMoviesByOlderDate,
 } from "../../../../features/movies/moviesSlice";
 import { useAppDispatch } from "../../../../hooks/redux-hooks";
+import { STRINGS } from "../../../../utils/strings";
 import "../favorites/FilterFavorites.css";
 
 export const FilterPending = () => {
@@ -22,10 +23,10 @@ export const FilterPending = () => {
       <FaFilter className="filter__icon" />
       <select className="filter__icon--down" name="Filter">
         <option value="value1" onClick={onOlderMovies}>
-          Older Movies
+          {STRINGS.olderMovies}
         </option>
         <option value="value2" onClick={onNewestMovies}>
-          Newest Movies
+          {STRINGS.newestMovies}
         </option>
       </select>
     </div>

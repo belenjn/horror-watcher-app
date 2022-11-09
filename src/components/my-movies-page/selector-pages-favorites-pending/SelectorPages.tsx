@@ -1,3 +1,4 @@
+import { STRINGS } from "../../../utils/strings";
 import "./SelectorPages.css";
 
 export const SelectorPages = ({
@@ -28,10 +29,10 @@ export const SelectorPages = ({
     <div className="gridMoviesPage__container">
       <div className="gridMoviesPage__container--pages">
         <div className="gridMoviesPage__container--pages--favorites">
-          <a className={favorites === true ? "active" : "no-active"} onClick={handleClickFavorites}>Favorites</a>
+          <a className={favorites === true ? "active" : "no-active"} onClick={handleClickFavorites}>{STRINGS.favoritesTitle}</a>
         </div>
         <div className="gridMoviesPage__container--pages--pending">
-          <a className={pending === true ? "active" : "no-active"} onClick={handleClickPending}>Pending</a>
+          <a className={pending === true ? "active" : "no-active"} onClick={handleClickPending}>{STRINGS.pendingTitle}</a>
         </div>
       </div>
     </div>

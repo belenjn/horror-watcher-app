@@ -16,6 +16,11 @@ export const STRINGS = {
   gridCardDetailsPendingButton: "Add to pending",
   gridCardDetailsFavoriteButton: "Add to favorites",
   gridCardDetailsHomeButton: "Back to home",
+  favoritesTitle: "Favorites",
+  pendingTitle: "Pending",
+  noMovies: " No movies yet :(",
+  olderMovies: "Older movies",
+  newestMovies: "Newest movies",
   footerName: "Belén JN",
   footerRights: "© 2022 All Rights reserved"
 };

@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../../../hooks/redux-hooks";
 import { startDeletingMovie, startDeletingPendingMovie } from "../../../../features/movies/thunks/thunks";
 import Swal from "sweetalert2";
 import { useState } from "react";
+import { STRINGS } from "../../../../utils/strings";
 
 export const GridCardMyMoviesPage = ({ movie }: { movie: Movie }) => {
   const [infoVisible, setInfoVisible] = useState<boolean>(false);
@@ -48,7 +49,7 @@ export const GridCardMyMoviesPage = ({ movie }: { movie: Movie }) => {
           }
         >
           <span>
-            <b>Overview: </b>
+            <b>{STRINGS.gridCardDetailsOverview} </b>
             {movie.overview}
           </span>
         </div>

@@ -1,4 +1,5 @@
 import { Movie } from "../../../types/movie";
+import { STRINGS } from "../../../utils/strings";
 import { FilterFavorites } from "../filter/favorites/FilterFavorites";
 import { GridMyMoviesPage } from "../grid/GridMyMoviesPage";
 import "./Favorites.css";
@@ -10,7 +11,7 @@ export const Favorites = ({
 }) => {
   return (
     <div className="favorites__container animate__animated animate__fadeIn animate__faster">
-      <h1 className="favorites__container--title">Favorites</h1>
+      <h1 className="favorites__container--title">{STRINGS.favoritesTitle}</h1>
       <FilterFavorites />
 
       <div className="favorites__container--grid">
@@ -20,7 +21,7 @@ export const Favorites = ({
               height: 500,
             }}
           >
-            No movies yet :(
+           {STRINGS.noMovies}
           </h1>
         ) : (
           <GridMyMoviesPage movies={favoritesMovies} />
