@@ -74,8 +74,8 @@
   gap: 20px;
 }
 
-
-.infinite-scroll-component__outerdiv, .infinite-scroll-component  {
+.infinite-scroll-component__outerdiv,
+.infinite-scroll-component {
   overflow: hidden !important;
 }
 
@@ -85,15 +85,33 @@
   }
 }
 
-@media only screen and (max-width: 375px) {
-
+@media only screen and (max-width: 412px) {
   .grid__container--items {
     background-color: var(--main-bg-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-  } 
+  }
+  .grid__input--image {
+    height: 25px;
+    width: 25px;
+  }
+
+  .grid__input {
+    width: 170px;
+    height: 30px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .grid__container--items {
+    background-color: var(--main-bg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
 
   .grid__input--image {
     height: 25px;
